@@ -5,7 +5,7 @@ extensions=(jpg png gif) #final
 mainUrl="http://angel07084759.github.io" #final
 
 srcDir="images" #final
-
+srcDirs=(images imagesCopy) #directoris should not contain spaces
 
 processImages() #params: 1>srcDir 2>mailUrl 
 {
@@ -18,7 +18,6 @@ processImages() #params: 1>srcDir 2>mailUrl
 
 	for file in $1/*
 	do
-
 		fullPath=$file
 		pathOnly=$(dirname "${fullPath}")
 		fileName=$(basename -- "$fullPath")
@@ -28,7 +27,6 @@ processImages() #params: 1>srcDir 2>mailUrl
 		newFileName=$(echo $newFileName | tr '[:punct:]' '_')
 		newFileName=$newFileName.$extension
 		newFullPath=$pathOnly/$newFileName
-		
 		
 		for ext in ${extensions[@]}
 		do
@@ -43,8 +41,13 @@ processImages() #params: 1>srcDir 2>mailUrl
 		done
 	done
 }
-
-processImages $srcDir $mainUrl
-
+#
+for dir in ${srcDirs[@]} #*/ #array=(*/)
+do
+	processImages $dir $mainUrl
+done
 
 read -p "Press [Enter] to continue..."
+
+
+

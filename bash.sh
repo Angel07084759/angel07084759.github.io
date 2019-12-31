@@ -2,7 +2,7 @@
 
 extensions=(jpg png gif) #final
 
-mainUrl="http://angel07084759.github.io" #final
+mainUrl="https://angel07084759.github.io" #final
 
 srcDir="images" #final
 srcDirs=(images imagesCopy) #directoris should not contain spaces

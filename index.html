@@ -12,25 +12,64 @@
 	<p id="demo"></p>	
 	
 	<script type="text/javascript">
-	
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() 
+	var url = 'https://angel07084759.github.io/images/images.txt';
+
+	function getText(url)//getTextFromUrl
 	{
-		if (this.readyState == 4 && this.status == 200) 
+		// read text from URL location
+		var request = new XMLHttpRequest();
+		request.onreadystatechange = function () 
 		{
-			// Action to be performed when the document is read;
-			document.getElementById("demo").innerHTML = this.responseText;
-		} 
-	};
+			if (request.readyState === 4 && request.status === 200) 
+			{
+				//document.write(request.readyState);
+				//var type = request.getResponseHeader('Content-Type');
+				//if (type.indexOf("text") !== 1) 
+				{
+					//return request.responseText;
+				}
+				//return request.responseText;
+			}
+		}
+		request.open('GET', url, false);
+		request.send(null);
+		return request.responseText.split('\n');
+	}
 	
-	xhttp.open("GET", "https://angel07084759.github.io/images/images.txt", false);
-	xhttp.send();
 	
+	
+	myFunction(getText(url));
+	
+    
+        document.getElementById('btn').onclick = function() 
+		{
+            var val = document.getElementById('imagename').value,
+                src = getText(url)[0], img = document.createElement('img');
+            img.src = src;
+            document.body.appendChild(img);
+        }
+   
+	
+	function myFunction(arr) 
+	{
+		var out = "";
+		var i;
+		for(i = 0; i < arr.length; i++) 
+		{
+			//out += arr[i] + '<br>';
+			document.write(arr[i] + '<br>')
+		}
+		document.write(out);
+		//out += '<a href="' + arr[i].url + '">' + arr[i].display + '</a><br>';
+		document.write('<img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32">');
+		document.write('<img src="https://angel07084759.github.io/images/android_mascot.png" alt="Lamp" width="32" height="32">');
+		//document.write('<img src='arr[0]' alt="Imange Error" width="32" height="32">');
+}
 	
 	</script>
 	
 	
 	<p> ***ENDING*** </p>
-    
+    <img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32">
 	</body>
 </html>

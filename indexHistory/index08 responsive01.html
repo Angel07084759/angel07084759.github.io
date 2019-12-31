@@ -191,31 +191,34 @@ img {vertical-align: middle;}
 
 
 
-var images = getImagesLinks('https://angel07084759.github.io/images/images.txt');
-var index = 0;
+var slideIndex = 1;
+showSlides(slideIndex);
 
-var the_image = document.getElementById("slideshow-container");
-the_image.src = images[0];
-
-function show_image(direction)
-{
-  if (direction == "left")
-  {
-    index--;
-  }
-  else
-  {
-    index++;
-    index %= images.length;
-  }
-  
-  if (index < 0)
-  {
-    index = images.length - 1;
-  }
-  
-  the_image.src = images[index];
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+var url = 'https://angel07084759.github.io/images/images.txt';
 	
 	
 	//read text from URL location
@@ -226,13 +229,11 @@ function show_image(direction)
 		request.open('GET', url, false);
 		request.send(null);
 		var arr = request.responseText.split('\n');
-		var resultArr = new Array();//
+		
 		for(i = 0; i < arr.length - 1; i++)
 		{
 			document.write('<img src="'+arr[i]+'" alt="'+arr[i]+'" width="100">');
-			resultArr[i] = arr[i]; //
 		}
-		return resultArr;
 		
 	}
 

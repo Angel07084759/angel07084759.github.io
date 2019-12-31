@@ -23,17 +23,31 @@
 		request.send(null);
 		var arr = request.responseText.split('\n');
 		
+		var imgArr = new Array();
 		for(i = 0; i < arr.length - 1; i++)
 		{
-			document.write('<img src="'+arr[i]+'" alt="'+arr[i]+'" width="100">');
+			//document.write('<img src="'+arr[i]+'" alt="img'+(i+1)+'err">');
+			imgArr[i] = new Image();
+			imgArr[i].src = arr[i];
+			imgArr[i].alt = arr[i];
+			
+			//imgArr[i].src = '<img src="'+arr[i]+'" alt="img'+(i+1)+'err">';
 		}
+		return imgArr;
 		
 	}
-	getImagesLinks(url);
+	
+	var arr = getImagesLinks(url);
+	
+	for(i = 0; i < arr.length; i++)
+	{
+		document.getElementById ("demo").appendChild (arr[i]);
+	}
 	
 	</script>
 	
 	
 	<p> ***ENDING*** </p>
+    <img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32">
 	</body>
 </html>

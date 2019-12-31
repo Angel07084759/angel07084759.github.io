@@ -1,13 +1,13 @@
 #!/bin/bash
 
-extensions=(jpg png gif tif) #final
+extensions=(jpg png gif) #final; unsupported: tif
 
 mainUrl="https://angel07084759.github.io" #final
 
-srcDir="images" #final
+#srcDir="images" #final
 srcDirs=(images imagesCopy) #directoris should not contain spaces
 
-processImages() #params: 1>srcDir 2>mailUrl 
+processImages() #params: 1>srcDirs[@] 2>mainUrl 
 {
 	fileOutput=$1/$1".txt" #$1=srcDir
 	>$fileOutput #truncating: file = 0 bytes

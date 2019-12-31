@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- head definitions go here -->
+        <title>Angel Tapia</title>
+        <!--link rel="stylesheet" href="http://angel07084759.github.io/styles.css"-->
+    </head>
+	<body
+	<p> ***STARTING*** </p>
+	<p id="demo"></p>	
+	
+	<script type="text/javascript">
+	var url = 'https://angel07084759.github.io/images/images.txt';
+
+	
+	//read text from URL location
+	//https://stackoverflow.com/questions/28828029/html-read-txt-file-from-url-location-in-javascript
+	function getImagesLinks(url)
+	{
+		var request = new XMLHttpRequest();
+		request.open('GET', url, false);
+		request.send(null);
+		var arr = request.responseText.split('\n');
+		
+		var imgArr = new Array();
+		for(i = 0; i < arr.length - 1; i++)
+		{
+			//document.write('<img src="'+arr[i]+'" alt="img'+(i+1)+'err">');
+			imgArr[i] = new Image();
+			imgArr[i].src = arr[i];
+			imgArr[i].alt = arr[i];
+			
+			//imgArr[i].src = '<img src="'+arr[i]+'" alt="img'+(i+1)+'err">';
+		}
+		return imgArr;
+		
+	}
+	
+	var arr = getImagesLinks(url);
+	
+	for(i = 0; i < arr.length; i++)
+	{
+		document.getElementById ("demo").appendChild (arr[i]);
+	}
+	
+	</script>
+	
+	
+	<p> ***ENDING*** </p>
+    <img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32">
+	</body>
+</html>

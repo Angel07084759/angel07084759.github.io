@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- head definitions go here -->
+        <title>Angel Tapia</title>
+        <!--link rel="stylesheet" href="http://angel07084759.github.io/styles.css"-->
+    </head>
+	<body
+	<p> ***STARTING*** </p>
+	<p id="demo"></p>	
+	
+	<script type="text/javascript">
+	var url = 'https://angel07084759.github.io/images/images.txt';
+	
+	
+	//read text from URL location
+	//https://stackoverflow.com/questions/28828029/html-read-txt-file-from-url-location-in-javascript
+	function getImagesLinks(url)
+	{
+		var request = new XMLHttpRequest();
+		request.open('GET', url, false);
+		request.send(null);
+		var arr = request.responseText.split('\n');
+		
+		for(i = 0; i < arr.length - 1; i++)
+		{
+			document.write('<img src="'+arr[i]+'" alt="'+arr[i]+'" width="100">');
+		}
+		
+	}
+	//getImagesLinks(url);
+	
+	
+	</script>
+	
+	
+	<p> ***ENDING*** </p>
+	</body>
+</html>

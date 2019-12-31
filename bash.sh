@@ -1,6 +1,6 @@
 #!/bin/bash
 
-extensions=(jpg png gif) #final
+extensions=(jpg png gif tif) #final
 
 mainUrl="https://angel07084759.github.io" #final
 

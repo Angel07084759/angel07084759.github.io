@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- head definitions go here -->
+        <title>Angel Tapia</title>
+        <!--link rel="stylesheet" href="http://angel07084759.github.io/styles.css"-->
+    </head>
+	<body	
+	<!-- http://angel07084759.github.io/images/images.txt -->
+	<p> ***STARTING*** </p>
+	<p id="demo"></p>	
+	
+	<script type="text/javascript">
+	
+	loadXMLDoc('http://angel07084759.github.io/images/images.txt');
+	//loadXMLDoc("http://angel07084759.github.io/images/images.txt");
+	//document.write(loadXMLDoc("http://angel07084759.github.io/images/images.txt"));
+	
+	function loadXMLDoc(theURL)
+    {
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari, SeaMonkey
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                //alert(xmlhttp.responseText);				
+            }
+			else
+			{
+				//document.write('function loadXMLDoc(theURL): something went wrong...');
+			}
+				
+        }
+			xmlhttp.open("GET", theURL, false);// false for synchronous request
+			xmlhttp.send(null);
+			//var x=xmlhttp.responseText;
+			//document.write(x);
+			//myFunction(JSON.parse(xmlhttp.responseText));
+			//var arr=JSON.parse(x);
+			
+			xmlhttp.responseText.split(',');
+			//obj = JSON.parse(xmlhttp.responseText.split(' '));
+			document.write(obj.length);
+			
+/**			
+		var out = "";
+		var i;
+	  
+		for(i = 0; i < arr.length; i++) 
+		{
+			out += '<a href="' + arr[i].url + '">' + arr[i].display + '</a><br>';
+		}
+		document.write(out);
+**/			
+    }
+	
+	function myFunction(arr) 
+	{
+	  var out = "";
+	  var i;
+	  
+	  for(i = 0; i < arr.length; i++) 
+	  {
+		out += '<a href="' + arr[i].url + '">' + arr[i].display + '</a><br>';
+	  }
+	  document.write(out);
+	}
+	
+	
+	</script>
+	
+	
+	<p> ***ENDING*** </p>
+    
+	</body>
+</html>

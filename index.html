@@ -45,27 +45,42 @@ body {
   background: #ddd;
   color: black;
 }
+    .myLogo
+    {
+        position: relative;
+        display: block;
+        margin-left: 0%;
+        margin-right: 0%;
+        width: 50%;
+        
+    }
 </style>
 </head>
 <body>
-    <!--
-<img src="https://angel07084759.github.io/images/IMG_4407_Logo.png" alt="logo" width="40%" height="auto">
--->
+    
+    
+    
     <script>
+        //document.write('<img src="https://angel07084759.github.io/images/IMG_4407_Logo.png" alt="logo" width="12%">');
         document.write(' <video autoplay muted loop id="myVideo"><source src="https://angel07084759.github.io/videos/video1.mp4" type="video/mp4">Your browser does not support HTML5 video.</video>');
     </script>
-   <!-- <video autoplay muted loop id="myVideo">
-  <source src="https://angel07084759.github.io/videos/video1.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>-->
-
+<!--LOGO-->
+<!--        <img class="myLogo" src="https://angel07084759.github.io/images/IMG_4407_Logo.png" alt="logo" style="align-content: center">
+    -->
+    <div class="myLogo">
+    <img class="myLogo" src="https://angel07084759.github.io/images/IMG_4407_Logo.png" alt="logo">
+    </div>
 <div class="content">
+    <!--
+    <img src="https://angel07084759.github.io/images/IMG_4407_Logo.png" alt="logo" width="60%" position="center center" >
+    -->
   <h1>Bella's HD Photography</h1>
   <p>Ismael Perez</p>
   <button id="myBtn" onclick="myFunction()">Pause</button>
 </div>
 
 <script>
+    
 var video = document.getElementById("myVideo");
 var btn = document.getElementById("myBtn");
 

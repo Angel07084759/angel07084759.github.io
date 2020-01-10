@@ -1,8 +1,8 @@
 #!/bin/bash
 
 mainUrl="https://angel07084759.github.io"	#final
-imageExtensions=(jpg png gif)				#tif Notsupported
-videoExtensions=(mp4 ogg webm)				#
+imageExtensions=(png jpg gif)				#tif Notsupported
+videoExtensions=(mp4 webm ogg)				#
 imagesDirectories=(images imagesCopy)		#directoris and names should not contain spaces
 videosDirectories=(videos videos1)			#
 

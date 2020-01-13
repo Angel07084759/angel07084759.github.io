@@ -21,6 +21,12 @@ processMediaFiles() #params: 1>srcDirectory[@] 2>fileExtensions[@]
 	
 	for file in $srcDirs/*
 	do
+        if [[ -d $file ]] 
+        then
+            echo "$file is a directory: "$file"" 
+            processMediaFiles "$file" ${srcExts[@]}
+        fi
+        
 		fullPath=$file
 		pathOnly=$(dirname "${fullPath}")
 		fileName=$(basename -- "$fullPath")
@@ -38,7 +44,7 @@ processMediaFiles() #params: 1>srcDirectory[@] 2>fileExtensions[@]
 				mv "$fullPath" "$newFullPath"
 				temp=$mainUrl/$pathOnly/$newFileName
 				echo $temp
-				echo $temp >> $fileOutput
+#				echo $temp >> $fileOutput
 				break
 			fi
 		done
@@ -50,10 +56,10 @@ do
 	processMediaFiles $dir ${imageExtensions[@]}
 done
 
-for dir in ${videosDirectories[@]} #*/ #array=(*/)
-do
-	processMediaFiles $dir ${videoExtensions[@]}
-done
+#for dir in ${videosDirectories[@]} #*/ #array=(*/)
+#do
+#	processMediaFiles $dir ${videoExtensions[@]}
+#done
 
 read -p "Press [Enter] to continue..."
 

@@ -57,7 +57,7 @@
     <style>
         *
         {
-/*            box-sizing: content-box;*/
+/*            box-sizing: border-box;*/
         }
         body
         {
@@ -81,7 +81,7 @@
         
         .navDiv
         {
-            position: relative;
+            position: absolute;
 			background: rgba(0, 0, 0, 0.5);
 			color: #f1f1f1;
 			width: 100%;
@@ -90,7 +90,8 @@
             
             
         }
-        .navDiv .mainContainer
+/*        .navDiv .mainContainer*/
+        .mainContainer
         {
             position: absolute;
 			background: rgba(23, 100, 100, 0.5);
@@ -102,21 +103,21 @@
         .navBtn
         {
             font-family: inherit;
-/*            font-size: 20px;*/
+            font-size: 100%;
             height: inherit;
             border: none;
             background:none;
             outline:none;
             animation-fill-mode: both;
-/*            padding: 0;*/
+            padding: 0;
 /*            margin-right: 2%;*/
             
             vertical-align: middle;
         
             
         }
-        
-        .navBtn2/*TESTING*/
+        /*TESTING*/
+/*        .navBtn2
         {
             width: 100%;
             border: none;
@@ -124,65 +125,94 @@
             outline:none;
             padding: 0;
             
-        }
+        }*/
         .navBtn:hover
         {
             cursor:pointer;
         }
         .navBtn:active
         {
-            background: rgba(0, 0, 0, 0.5);
+/*            background: rgba(0, 0, 0, 0.5);*/
         }
+        /* Style the active class, and buttons on mouse-over */
+        .active, .btn:hover 
+        {
+            background-color: #666;
+            color: white;
+        }
+        
+        
         
     </style>
         
     </head>
     <body>
-<!--        <img height="100%" onclick="null" style="padding: 0;" src="https://angel07084759.github.io/images/Logo/BHDPLogo.png" alt="logo">-->
         <script>
-            document.write(createVideo("autoplay muted loop", "homepage_video_id", "class", homepage_video));
+            document.write( createVideo("autoplay muted loop", "homepage_video_id", ""/*class*/, homepage_video) );
         </script>
-    </body>
-    <div class="navDiv">
-        <script>
-            //<button class="navBtn" onclick="myFunction()"> </button>';
-            var btn = '<button class="navBtn" onclick="myFunction()"> '
-            +createImage("main_logo_id", "", main_logo,'height="100%"')+'</button>';
-            //document.write(createImage("main_logo_id", "CLASS", main_logo));
-            document.write(btn);
-            document.write('<button class="navBtn" onclick="myFunction()">BTN </button>');
-            document.write(btn);
-            document.write('<button class="navBtn" onclick="myFunction()">BTN </button>');
-            document.write(btn);
-            document.write('<button class="navBtn" onclick="myFunction()">BTN </button>');
-            document.write(btn);
-            
-            
-            function myFunction() 
-            {
-/*                var x = document.getElementById("myTopnav");
-                if (x.className === "topnav") 
+        <div class="navDiv">
+            <script>
+                function onTabClick(evt, btnID)
                 {
-                    x.className += " responsive";
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("navBtn");
+//
+//                    for (i = 0; i < tabcontent.length; i++) 
+//                    {
+//                        tabcontent[i].style.display = "none";
+//                    }
+//
+//                    tablinks = document.getElementsByClassName("navBtn");
+//
+//                    for (i = 0; i < tablinks.length; i++) 
+//                    {
+//                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+//                    }
+//
+//                    //document.getElementById(cityName).style.display = "block";
+//                    evt.currentTarget.className += " active";
+                    document.getElementById(btnID).style.background = "rgba(0, 0, 0, 0.3)";// "HELLO WORLD!!!";//btnID.toString;
+                    document.getElementById("demo").innerHTML = "HELLO " + btnID + " [" + tabcontent.length + "]";
+                    
                 }
-                else 
+                //document.getElementById("defaultTab").click();
+
+
+
+
+
+                var btn = '<button class="navBtn" onclick="onTabClick(event, \'btn\')" id="btn">'
+                +createImage("main_logo_id", ""/*class*/, main_logo,'height="100%"'/*properties*/)+'</button>';
+                //document.write(createImage("main_logo_id", "CLASS", main_logo));
+                document.write(btn);
+                document.write('<button class="navBtn" onclick="onTabClick(event, \'btn1\')" id="btn1">BTN</button>');
+                document.write(btn);
+                document.write('<button class="navBtn" onclick="onTabClick(event, \'btn2\')" id="btn2">BTN</button>');
+                document.write(btn);
+                document.write('<button class="navBtn" onclick="onTabClick(event, \'btn3\')" id="btn3">BTN</button>');
+                document.write(btn);
+
+
+                function myFunction() 
                 {
-                    x.className = "topnav";
-                }*/
-                document.getElementById("idTest").style.background = "rgba(0, 0, 0, 0.5)";
-//                var x =document.getElementById("idTest").innerHTML;
-//                x = "hello";
-                
-            }
-        </script>
+    /*                var x = document.getElementById("myTopnav");
+                    if (x.className === "topnav") 
+                    {
+                        x.className += " responsive";
+                    }
+                    else 
+                    {
+                        x.className = "topnav";
+                    }*/
+                }
+            </script>
         <div class="mainContainer" id="idTest">
+             <p id="demo">This is s p test!</p> 
             <h1>Hello</h1>
             <h1>Bella's HD Photography</h1>
             <script>
-                var btn = '<button class="navBtn2" onclick="myFunction()">'
-                +createImage("main_logo_id", "navBtn2", main_logo,"")+'</button>';
-                //document.write(createImage("main_logo_id", "CLASS", main_logo));
-                document.write(btn);
+                var btn = '<button class="navBtn" onclick="onTabClick(event, \'btn4\')" id="btn4">'
+                        + createImage("main_logo_id", "CLASS", main_logo, 'width="100%"') + '</button>';
                 document.write(btn);
                 document.write(btn);
                 document.write(btn);
@@ -194,6 +224,7 @@
 
 
     </div>
+    </body>
 </html>
 
 

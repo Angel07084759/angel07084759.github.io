@@ -85,7 +85,7 @@
 			background: rgba(0, 0, 0, 0.5);
 			color: #f1f1f1;
 			width: 100%;
-            height: 50px; 
+            height: 35px; 
             text-align: center;
             
             
@@ -102,7 +102,7 @@
         .navBtn
         {
             font-family: inherit;
-/*            font-size: 20px;*/
+            font-size: 100%;
             height: inherit;
             border: none;
             background:none;
@@ -146,20 +146,21 @@
     <div class="navDiv">
         <script>
             //<button class="navBtn" onclick="myFunction()"> </button>';
-            var btn = '<button class="navBtn" onclick="myFunction()"> '
+            var btn = '<button class="navBtn" onclick="myFunction()" id="btnTestId">'
             +createImage("main_logo_id", "", main_logo,'height="100%"')+'</button>';
             //document.write(createImage("main_logo_id", "CLASS", main_logo));
             document.write(btn);
-            document.write('<button class="navBtn" onclick="myFunction()">BTN </button>');
+            document.write('<button class="navBtn" onclick="myFunction(btnTestId)">BTN </button>');
             document.write(btn);
-            document.write('<button class="navBtn" onclick="myFunction()">BTN </button>');
+            document.write('<button class="navBtn" onclick="myFunction(btnTestId)">BTN </button>');
             document.write(btn);
-            document.write('<button class="navBtn" onclick="myFunction()">BTN </button>');
+            document.write('<button class="navBtn" onclick="myFunction(btnTestId)">BTN </button>');
             document.write(btn);
             
             
-            function myFunction() 
+            function myFunction(id) 
             {
+                document.getElementById(id).style.background = "rgba(0, 0, 0, 1)";
 /*                var x = document.getElementById("myTopnav");
                 if (x.className === "topnav") 
                 {
@@ -169,10 +170,9 @@
                 {
                     x.className = "topnav";
                 }*/
-                document.getElementById("idTest").style.background = "rgba(0, 0, 0, 0.5)";
+//                document.getElementById("idTest").style.background = "rgba(0, 0, 0, 0.5)";
 //                var x =document.getElementById("idTest").innerHTML;
-//                x = "hello";
-                
+//                x = "hello";    
             }
         </script>
         <div class="mainContainer" id="idTest">
@@ -182,7 +182,7 @@
                 var btn = '<button class="navBtn2" onclick="myFunction()">'
                 +createImage("main_logo_id", "navBtn2", main_logo,"")+'</button>';
                 //document.write(createImage("main_logo_id", "CLASS", main_logo));
-                document.write(btn);
+//                document.write("");
                 document.write(btn);
                 document.write(btn);
                 document.write(btn);

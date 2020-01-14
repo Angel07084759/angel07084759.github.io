@@ -4,7 +4,9 @@
     <title>Bella's HD Photography</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-        var home_page_
+        var main_logo = getMediaLinks('https://angel07084759.github.io/images/Logo/Logo.txt');//Change dir to alll lower case
+        var homepage_video = getVideoLinksNoExtension('https://angel07084759.github.io/videos/homepage_video/homepage_video.txt');
+        
         function getMediaLinks(url)
         {
             var request = new XMLHttpRequest();
@@ -37,28 +39,115 @@
             }
             return tempArray;
         }
+        function createVideo(vPlayMode, vId, vClass, vSrc)
+        {
+            var vSetup = '<video ' + vPlayMode +' id="'+vId+'"' + ' class="' + vClass +'">';
+            vSetup += ' <source src="'+ vSrc+'.mp4"  type="video/mp4">';
+            vSetup += ' <source src="'+ vSrc+'.webm" type="video/webm">';
+            vSetup += ' <source src="'+ vSrc+'.ogg"  type="video/ogg">';
+            vSetup += ' Your browser does not support HTML5 video.</video>';
+            return vSetup;
+        }
+        function createImage(iId, iClass, iSrc, iSet)
+        {
+            return '<img id="' + iId + '" class="' + iClass + '" src="' + iSrc + '" ' + iSet + '> ';
+        }
     </script>
 
     <style>
         *
         {
-
+            box-sizing: border-box;
         }
+
+        #homepage_video_id
+        {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+        }
+        #main_logo_id
+        {
+            height: 100%;
+        }
+        
+        .navDiv
+        {
+            position: fixed;
+			background: rgba(0, 0, 0, 0.5);
+			color: #f1f1f1;
+            top: 0;
+            left: 0;
+			width: 100%;
+            height: 50px;                 
+        }
+        .mainContainer
+        {
+            position: fixed;
+			background: rgba(0, 0, 0, 0.0);
+			color: #f1f1f1;
+            bottom: 0;
+            left: 0;
+            top: 50px;
+			width: 100%;                
+        }
+        .navBtn
+        {
+            height: 100%;
+            border: none;
+            background:none;
+            outline:none;
+            padding: 0;
+            
+        }
+        .navBtn:hover
+        {
+            cursor:pointer;
+        }
+        .navBtn:active
+        {
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
     </style>
         
     </head>
     <body>
+<!--        <img height="100%" onclick="null" style="padding: 0;" src="https://angel07084759.github.io/images/Logo/BHDPLogo.png" alt="logo">-->
         <script>
-            var a = getMediaLinks('https://angel07084759.github.io/videos/home_page_video/homepage_video.txt');
-                for(i = 0; i < a.length; i++)
-                {
-                    document.write(a[i]);
-                    document.write("<br>");
-                }
+            document.write(createVideo("autoplay muted loop", "homepage_video_id", "class", homepage_video));
         </script>
-        
-<!--        <video autoplay muted loop id="myVideo"> <source src="https://angel07084759.github.io/videos/video.mp4" type="video/mp4">Your browser does not support HTML5 video.</video>-->
     </body>
+    <div class="navDiv">
+        <script>
+            var btn = '<button class="navBtn" onclick="myFunction()"> '
+            +createImage("main_logo_id", "", main_logo,"")+'</button>';
+            //document.write(createImage("main_logo_id", "CLASS", main_logo));
+            document.write(btn);
+            function myFunction() 
+            {
+/*                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") 
+                {
+                    x.className += " responsive";
+                }
+                else 
+                {
+                    x.className = "topnav";
+                }*/
+                document.getElementById("idTest").style.background = "rgba(0, 0, 0, 0.5)";
+                var x =document.getElementById("idTest").innerHTML;
+                x = "hello";
+                
+            }
+        </script>
+    </div>
+        <div class="mainContainer" id="idTest">
+            
+            
+    </div>
 </html>
 
 

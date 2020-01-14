@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Bella's HD Photography</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        
+        function getMediaLinks(url)
+        {
+            var request = new XMLHttpRequest();
+            request.open('GET', url, false);
+            request.send(null);
+            var tempArray = request.responseText.split('\n');
+            var removedLine = tempArray.pop().trim();
+            if (removedLine.length > 0)
+            {
+                tempArray.push(removedLine);
+            }
+            return tempArray;
+        }
+
+        function getVideoLinksNoExtension(url)
+        {
+            var arr = getMediaLinks(url);
+            var tempArray = new Array();
+            var map  = new Map();
+
+            for(i = 0; i < arr.length; i++)
+            {
+                var mediaName = arr[i].split('/').pop().split('.')[0];
+                var temp = arr[i].substr(0, arr[i].lastIndexOf('.'));
+                if (!map.has(mediaName))
+                {
+                    map.set(mediaName, arr[i]);
+                    tempArray.push(temp);
+                }
+            }
+            return tempArray;
+        }
+    </script>
+
+    <style>
+        *
+        {
+
+        }
+    </style>
+        
+    </head>
+    <body>
+        <script>
+            var a = getMediaLinks('https://angel07084759.github.io/videos/home_page_video/home_page_video.txt');
+                for(i = 0; i < a.length; i++)
+                {
+                    document.write(a[i]);
+                    document.write("<br>");
+                }
+        </script>
+        
+<!--        <video autoplay muted loop id="myVideo"> <source src="https://angel07084759.github.io/videos/video.mp4" type="video/mp4">Your browser does not support HTML5 video.</video>-->
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

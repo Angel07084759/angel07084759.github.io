@@ -3,8 +3,8 @@
 mainUrl="https://angel07084759.github.io"	#final
 imageExtensions=(png jpg gif)				#tif Notsupported
 videoExtensions=(mp4 webm ogg)				#
-imagesDirectories=(images media)            #directoris and names should not contain spaces
-videosDirectories=(videos videos0)			#
+imagesDirectories=(images)                  #directoris and names should not contain spaces
+videosDirectories=(videos)                  #
 
 processMediaFiles() #params: 1>rootDirectory[@] 2>fileExtensions[@]
 {

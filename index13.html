@@ -57,45 +57,63 @@
     <style>
         *
         {
-            box-sizing: border-box;
+/*            box-sizing: content-box;*/
         }
-
+        body
+        {
+            background: rgba(0, 0, 0, 0.5);
+            margin: 0;
+/*            font-family: Arial, Helvetica, sans-serif;*/
+            font-family: cursive;
+        }
         #homepage_video_id
         {
             position: fixed;
-            right: 0;
-            bottom: 0;
             min-width: 100%; 
             min-height: 100%;
         }
+/*
         #main_logo_id
         {
             height: 100%;
         }
+*/
         
         .navDiv
         {
-            position: fixed;
+            position: relative;
 			background: rgba(0, 0, 0, 0.5);
 			color: #f1f1f1;
-            top: 0;
-            left: 0;
 			width: 100%;
-            height: 50px;                 
+            height: 45px; 
+            text-align: center;
+            
         }
-        .mainContainer
+        .navDiv .mainContainer
         {
-            position: fixed;
-			background: rgba(0, 0, 0, 0.0);
+            position: relative;
+			background: rgba(23, 100, 100, 0.5);
 			color: #f1f1f1;
+			width: 100%;
             bottom: 0;
-            left: 0;
-            top: 50px;
-			width: 100%;                
         }
         .navBtn
         {
-            height: 100%;
+            font-family: inherit;
+            font-size: 25px;
+            height: inherit;
+            border: none;
+            background:none;
+            outline:none;
+            padding: 0;
+            margin-right: 2%;
+            vertical-align: middle;
+        
+            
+        }
+        .navBtn2/*TESTING*/
+        {
+            width: 100%;
             border: none;
             background:none;
             outline:none;
@@ -122,10 +140,19 @@
     </body>
     <div class="navDiv">
         <script>
+            //<button class="navBtn" onclick="myFunction()"> </button>';
             var btn = '<button class="navBtn" onclick="myFunction()"> '
-            +createImage("main_logo_id", "", main_logo,"")+'</button>';
+            +createImage("main_logo_id", "", main_logo,'height="100%"')+'</button>';
             //document.write(createImage("main_logo_id", "CLASS", main_logo));
             document.write(btn);
+            document.write('<button class="navBtn" onclick="myFunction()">BTN </button>');
+            document.write(btn);
+            document.write('<button class="navBtn" onclick="myFunction()">BTN </button>');
+            document.write(btn);
+            document.write('<button class="navBtn" onclick="myFunction()">BTN </button>');
+            document.write(btn);
+            
+            
             function myFunction() 
             {
 /*                var x = document.getElementById("myTopnav");
@@ -138,15 +165,28 @@
                     x.className = "topnav";
                 }*/
                 document.getElementById("idTest").style.background = "rgba(0, 0, 0, 0.5)";
-                var x =document.getElementById("idTest").innerHTML;
-                x = "hello";
+//                var x =document.getElementById("idTest").innerHTML;
+//                x = "hello";
                 
             }
         </script>
-    </div>
         <div class="mainContainer" id="idTest">
-            
-            
+            <h1>Hello</h1>
+            <script>
+                var btn = '<button class="navBtn2" onclick="myFunction()">'
+                +createImage("main_logo_id", "navBtn2", main_logo,"")+'</button>';
+                //document.write(createImage("main_logo_id", "CLASS", main_logo));
+                document.write(btn);
+                document.write(btn);
+                document.write(btn);
+                document.write(btn);
+                document.write(btn);
+                document.write(btn);
+                document.write(btn);
+            </script>
+        </div>
+
+
     </div>
 </html>
 

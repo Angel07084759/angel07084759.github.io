@@ -121,29 +121,97 @@
             background-color: #16588a;
         }
         
+        
+        @media screen and (max-width: 600px) 
+        {
+            .tab .tabBtn
+            {
+                display: none;
+            }
+            #mainLogoBtn
+            {
+                position: relative;
+                display: block;
+                float: right;
+                
+            }
+        }
+
+        @media screen and (max-width: 600px) 
+        {
+            .tab.responsive 
+            {
+                position: relative;
+            }
+            .tab.responsive .icon 
+            {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .tab.responsive a 
+            {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+        .show
+        {
+            display: block;
+        }
+        
     </style>
     </head>
     <body>
         <script>//homepage_video
             document.write(createVideo("autoplay muted loop", "homepage_video_id", "CLASS", homepage_video,''));
+            
+            /* When the user clicks on the button, 
+            toggle between hiding and showing the dropdown content */
+            function myFunction() 
+            {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function(event) 
+            {
+                if (!event.target.matches('.mainLogoBtn')) 
+                {
+                    var dropdowns = document.getElementsByClassName("tabBtn");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) 
+                    {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) 
+                        {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+
         </script>
         
         <div class="main">
-            <div class="tab">
+            <div class="tab" id="myDropdown">
                 <script>
                     var mainLogoBtn = '<button class="tabBtn" ' 
-                        +'onclick="onTabClick(event, \'tabBtn\')" id="mainLogoBtn">'
+                        +'onclick="myFunction()" id="mainLogoBtn">'
                         + createImage("ID", "CLASS", main_logo,'height="100%"')+'</button>';
                     document.write(mainLogoBtn);
 //                    document.write('<button class="tabBtn" onclick="onTabClick(event, \'btn3\')" id="btn3">BTN</button>');
 
                 </script>
-                <button class="tabBtn" onclick="onTabClick(event, \'btn3\')" id="btn3">Portfolio</button>
-                <button class="tabBtn" onclick="onTabClick(event, \'btn3\')" id="btn3">Contact</button>
-                <button class="tabBtn" onclick="onTabClick(event, \'btn3\')" id="btn3">Abaout</button>
-                <h1>Hello<h1>
+                <button class="tabBtn" onclick="onTabClick(event, \'portfolioBtnId\')" id="portfolioBtnId">Portfolio</button>
+                <button class="tabBtn" onclick="onTabClick(event, \'contactBtnId\')" id="contactBtnId">Contact</button>
+                <button class="tabBtn" onclick="onTabClick(event, \'aboutBtnId\')" id="aboutBtnId">About</button>
                     
             </div>
+            
+                <h1>Hello</h1>
         </div>
         
         

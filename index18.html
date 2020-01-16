@@ -87,7 +87,7 @@
             z-index: -1;
         }
         .dropdown 
-        {
+        {top: 0;
             position: fixed;
             display: inline;
             height: 3rem;
@@ -147,10 +147,7 @@
         
         .tabContent
         {
-/*            position: fixed;*/
-/*            margin: 0;*/
-            display: none;
-/*            margin-top: 3rem;*/
+            margin-top: 3rem;
         }
         
         
@@ -252,21 +249,12 @@
             
             window.onclick = function(event) 
             {
-                document.getElementById("demo").innerHTML = "EVENTO DE PRUEBA" + event.target.matches('.logoBtnClss');
+                document.getElementById("demo").innerHTML = "EVENTO DE PRUEBA  " + event.target.matches('.logoBtnClss');
                 if (!event.target.matches('.logoBtnClss') && window.innerWidth <= 600)
                 {
                     document.getElementById("myDropdown").style.display= "none";
-     /*               var dropdowns = document.getElementsByClassName(".dropdown-content");
-                    var i;
-                    for (i = 0; i < dropdowns.length; i++) 
-                    {
-                        var openDropdown = dropdowns[i];
-                        if (openDropdown.classList.contains('show')) 
-                        {
-                            openDropdown.classList.remove('show');
-                        }
-                    }*/
                 }
+                document.getElementById("demo").innerHTML = "EVENTO DE PRUEBA" +  window.innerWidth;
             }
             function onTabClick(event, id)
             {
@@ -281,42 +269,97 @@
                 document.getElementById(id).style.display = "block";//Need to be implemented
             }
             
+            
+//            // Defining event listener function
+//            function displayWindowSize()
+//            {
+//                // Get width and height of the window excluding scrollbars
+//                var w = window.innerWidth;
+//                var h = window.innerHeight;
+//
+//                // Display result inside a div element
+//                document.getElementById("demo2").innerHTML = "Width: " + w + ", " + "Height: " + h;
+//                
+//            }
+//            // Attaching the event listener function to window's resize event
+//            window.addEventListener("resize", displayWindowSize);
+            window.addEventListener("resize", function(){
+                           var w = window.innerWidth;
+                var h = window.innerHeight;
+                if (window.innerWidth <= 600)
+                {
+                    document.getElementById("myDropdown").style.display = "block";
+                }
+
+                // Display result inside a div element
+                document.getElementById("demo2").innerHTML = "Width: " + w + ", " + "Height: " + h;
+                
+            });
+    
+            // Calling the function for the first time
+            displayWindowSize();
+            
         </script>
         <!--PLACE HOLDER-->
             <div class="tabContent" id="homeTabId">
-                <h1 style="margin-top: 0;">Home   document .get El e m e n tB yI d( "h om eT ab I d " )  .s t y le. di sp la y  =  "block"</h1>
+                <h1>Home</h1>
+                <h1> div class = "tabContent" id = "homeTabId"</h1>
                 <button> this is a  button </button>
                 <button> this is a  button </button>
                 <button> this is a  button </button>
-                
-                
+                <p id="demo"> </p>
+                <p id="demo2"> </p>
+                <script>
+                    document.write(createVideo("autoplay muted loop", "videioTestId", "CLASS", homepage_video,'width="100%"'));
+                </script>
+                <h1> div class="tabContent" id="homeTabId" </h1>
+                 <script>
+                    document.write(createVideo("autoplay muted loop", "videioTestId", "CLASS", homepage_video,'width="100%"'));
+                </script>
+                <h1> div class="tabContent" id="homeTabId" </h1>
+                 <script>
+                    document.write(createVideo("autoplay muted loop", "videioTestId", "CLASS", homepage_video,'width="100%"'));
+                </script>
+                <h1> div class="tabContent" id="homeTabId" </h1>
                 
             </div>
+        
+        
+        
+        
             <div class="tabContent" id="aboutTabId">
-                <h1 style="margin-top: 0;">About</h1>
+                <h1>About</h1>
+                <h1> div class = "tabContent" id = "homeTabId"</h1>
+                <button> this is a  button </button>
+                <button> this is a  button </button>
+                <button> this is a  button </button>
+                <p id="demo"> </p>
+                <p id="demo2"> </p>
+                <script>
+                    document.write(createVideo("autoplay muted loop", "videioTestId", "CLASS", homepage_video,'width="100%"'));
+                </script>
+                <h1> div class="tabContent" id="homeTabId" </h1>
+                 <script>
+                    document.write(createVideo("autoplay muted loop", "videioTestId", "CLASS", homepage_video,'width="100%"'));
+                </script>
+                <h1> div class="tabContent" id="homeTabId" </h1>
+                 <script>
+                    document.write(createVideo("autoplay muted loop", "videioTestId", "CLASS", homepage_video,'width="100%"'));
+                </script>
+                <h1> div class="tabContent" id="homeTabId" </h1>
+                
             </div>
             <div class="tabContent" id="contactTabId">
-                <h1 style="margin-top: 0;">Contact</h1>
+                <h1>Contact</h1>
             </div>
-        <p id="demo"> </p>
         
-        
+         
         <script>//homepage_video
             document.getElementById("homeTabId").style.display = "block";
         </script>
                 
-        <script>
-            document.write(createVideo("autoplay muted loop", "videioTestId", "CLASS", homepage_video,'width="100%"'));
-        </script>
-        <h1 style="margin-top: 0;">Home   document .get El e m e n tB yI d( "h om eT ab I d " )  .s t y le. di sp la y  =  "block"</h1>
-         <script>
-            document.write(createVideo("autoplay muted loop", "videioTestId", "CLASS", homepage_video,'width="100%"'));
-        </script>
-        <h1 style="margin-top: 0;">Home   document .get El e m e n tB yI d( "h om eT ab I d " )  .s t y le. di sp la y  =  "block"</h1>
-         <script>
-            document.write(createVideo("autoplay muted loop", "videioTestId", "CLASS", homepage_video,'width="100%"'));
-        </script>
-        <h1 style="margin-top: 0;">Home   document .get El e m e n tB yI d( "h om eT ab I d " )  .s t y le. di sp la y  =  "block"</h1>
+        
+        
         
         
     </body>

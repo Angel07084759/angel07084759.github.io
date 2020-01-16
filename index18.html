@@ -232,7 +232,7 @@
                 }
                 else if(window.innerWidth > 600 && tabContent.style.display == "none")
                 {
-                    tabContent.style.display ="flex";
+                    tabContent.style.display ="inline-flex";
                 }
                 else
                 {
@@ -252,7 +252,7 @@
             window.onclick = function(event) 
             {
                 document.getElementById("demo").innerHTML = "EVENTO DE PRUEBA" + event.target.matches('.logoBtnClss');
-                if (!event.target.matches('.logoBtnClss'))
+                if (!event.target.matches('.logoBtnClss') && window.innerWidth <= 600)
                 {
                     document.getElementById("myDropdown").style.display= "none";
      /*               var dropdowns = document.getElementsByClassName(".dropdown-content");

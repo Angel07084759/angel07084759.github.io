@@ -88,10 +88,13 @@
         }
         .dropdown 
         {
-/*            position: ;*/
-            display: inline;
+            top: 0;
+            left: 0;
+            position: fixed;
+/*            display: inline;*/
             height: 3rem;
             display: flex;
+            z-index: 1;
 /*            width: 100%;*/
 /*            background: rgba(0, 0, 0, 0.2);*/
         }
@@ -149,8 +152,11 @@
 /*            position: fixed;*/
 /*            margin: 0;*/
             display: none;
-/*            margin-top: 3rem;*/
+            margin-top: 2rem;
         }
+        
+        
+        
         
         
         
@@ -160,10 +166,9 @@
             
             .dropdown
             {
-                top:0;
-                right:0;
+                right: 0;
                 position: fixed;
-                display: inline-block;
+/*                display: inline-block;*/
                 z-index: 1;
             }
             .dropdown-content
@@ -174,7 +179,6 @@
             }
             .dropdown-content a 
             {
-/*                float: right;*/
                 
                 display: block;
 /*                background-color: rgba(0,0,0,0.5);*/
@@ -245,14 +249,14 @@
                     {
                         tabContent.style.display= "none"
                     }
-                    tabContent.classList.toggle("show");
+                    tabContent.classList.toggle("show"); 
                 }
             }
             
             window.onclick = function(event) 
             {
                 document.getElementById("demo").innerHTML = "EVENTO DE PRUEBA" + event.target.matches('.logoBtnClss');
-                if (!event.target.matches('.logoBtnClss'))
+                if (!event.target.matches('.logoBtnClss') && window.innerWidth <= 600)
                 {
                     document.getElementById("myDropdown").style.display= "none";
      /*               var dropdowns = document.getElementsByClassName(".dropdown-content");
@@ -320,6 +324,7 @@
         
     </body>
 </html>
+
 
 
 

@@ -249,12 +249,12 @@
             
             window.onclick = function(event) 
             {
-                document.getElementById("demo").innerHTML = "EVENTO DE PRUEBA  " + event.target.matches('.logoBtnClss');
+                //document.getElementById("demo").innerHTML = "EVENTO DE PRUEBA  " + event.target.matches('.logoBtnClss');////////////////
                 if (!event.target.matches('.logoBtnClss') && window.innerWidth <= 600)
                 {
                     document.getElementById("myDropdown").style.display= "none";
                 }
-                document.getElementById("demo").innerHTML = "EVENTO DE PRUEBA" +  window.innerWidth;
+                document.getElementById("demo").innerHTML = "EVENTO DE PRUEBA " +  window.innerWidth;////////////////////////
             }
             function onTabClick(event, id)
             {

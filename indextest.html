@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Bella's HD Photography</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" href="css/css.css">
+    <script>
+        var mainUrl = 'https://angel07084759.github.io';
+        var main_logo = getMediaLinks(mainUrl + '/images/Logo/Logo.txt');//Change dir to alll lower case
+        var homepage_video = getMediaLinksNoExtension(mainUrl + '/videos/homepage_video/homepage_video.txt')[0];
+        
+        function getMediaLinks(url)
+        {
+            var fileOk = true;
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function() 
+            {
+                fileOk = !(this.readyState == 4 && this.status != 200);
+            };
+            
+            request.open('GET', url, false);//asyn=false
+            request.send(null);
+            
+            if (!fileOk)
+            {
+                return null;
+            }
+            
+            var tempArray = request.responseText.split('\n');
+            var removedLine = tempArray.pop().trim();
+            if (removedLine.length > 0)
+            {
+                tempArray.push(removedLine);
+            }
+            return tempArray;
+        }
+
+        function getMediaLinksNoExtension(url)
+        {
+            var arr = getMediaLinks(url);
+            if (arr == null)
+            {
+                return null;
+            }
+            var tempArray = new Array();
+            var map  = new Map();
+
+            for(i = 0; i < arr.length; i++)
+            {
+                var mediaName = arr[i].split('/').pop().split('.')[0];
+                var temp = arr[i].substr(0, arr[i].lastIndexOf('.'));
+                if (!map.has(mediaName))
+                {
+                    map.set(mediaName, arr[i]);
+                    tempArray.push(temp);
+                }
+            }
+            return tempArray;
+        }
+        function createVideo(playMode, id, clss, src, set)
+        {
+            var vSetup = '<video ' + playMode + ' id="' + id + '"' + ' class="' + clss + '" ' + set + '>';
+            vSetup += ' <source src="' + src  + '.mp4" type="video/mp4">';
+            vSetup += ' <source src="' + src  + '.webm" type="video/webm">';
+            vSetup += ' <source src="' + src  + '.ogg" type="video/ogg">';
+            vSetup += ' Your browser does not support HTML5 video.</video>';
+            return vSetup;
+        }
+        function createImage(id, clss, src, set)
+        {
+            return '<img id="' + id + '" class="' + clss + '" src="' + src+ '" ' + set + '> ';
+        }
+        
+    </script>
+    </head>
+    
+        
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

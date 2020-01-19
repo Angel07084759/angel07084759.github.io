@@ -76,6 +76,7 @@
         #logoImgId
         {
             height: 3rem;
+            margin: ;
         }
 
         body
@@ -115,15 +116,11 @@
         {
             display: flex;
             align-items: center;
-            justify-content: center;
-            height: 3rem;
-            
-            
-        }
-        .menuBarClass
-        {
-            box-shadow: 10px 10px 10px #767676;
             background-color: #16588a;
+            box-shadow: 10px 10px 10px #767676;
+            justify-content: center;
+            
+            
         }
         #menuId
         {
@@ -133,32 +130,30 @@
         {
             
         }
-        .menuBtnsClass
-        {
-            display: flex;
-/*            margin-top: -1rem;*/
-            justify-content: center;
-            cursor: pointer;
-        }
-        
     
     </style>
     <body>
-        <div class="menuBarClass">
-            <div class="homeTitleClass">
-                <script>
-                    document.write(createImage("logoImgId",  "logoImgClass", main_logo, ""));
-                </script>
-                <h1>Bella's HD Photography</h1>
-            </div>
-            <div class="menuBtnsClass">
-                <a onclick="onTabClick(event, 'homeTabId')"> Home</a>
-                <a onclick="onTabClick(event, 'aboutTabId')">About</a>
-                <a onclick="onTabClick(event, 'contactTabId')">Contact</a>
-                <a onclick="onTabClick(event, 'TestingTabBtnID')">Testing a very larger tabBtn </a>
-            </div>   
-        </div>
         
+<!--
+        <div id="menuId" class="menuClass">
+            <a onclick="onTabClick(event, 'homeTabId')"> Home</a>
+            <a onclick="onTabClick(event, 'aboutTabId')">About</a>
+            <a onclick="onTabClick(event, 'contactTabId')">Contact</a>
+            <a onclick="onTabClick(event, 'TestingTabBtnID')">Testing a very larger tabBtn </a>
+        </div>
+-->
+        <div class="homeTitleClass">
+            <script>
+                document.write(createImage("logoImgId",  "logoImgClass", main_logo, ""));
+            </script>
+            <h1>Bella's HD Photography</h1>
+            <div class="container" onclick="myFunction(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                
+            </div>
+        </div>
 
         <script>
             function myFunction(x) 

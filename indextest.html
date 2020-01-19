@@ -136,9 +136,12 @@
         .menuBtnsClass
         {
             display: flex;
-/*            margin-top: -1rem;*/
             justify-content: center;
             cursor: pointer;
+        }
+        .menuBtnsClass a
+        {
+            margin-right: 1rem;;
         }
         
     
@@ -165,9 +168,16 @@
             {
                 x.classList.toggle("change");
             }
+            window.addEventListener ('resize',function(event)
+            {
+                var w = document.documentElement.clientWidth;
+                var h = document.documentElement.clientHeight;
+                document.getElementById("demo").innerHTML = "Width: " + w + ", " + "Height: " + h;
+                
+            });
         </script>
         
-        
+        <p id="demo"></p>
         
         
         

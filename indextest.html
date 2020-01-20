@@ -84,9 +84,11 @@
         .menuBarClass
         {
             
+/*
             box-shadow: 0rem 0.6rem 0.4rem #767676;
             background-color: #16588a;
             border-radius: 4rem;
+*/
 /*            position: relative;*/
             display: flex;
             align-items: center;
@@ -110,24 +112,40 @@
             
             text-align: center;
             font-weight: bolder;
-            font-size: 2rem;
+            font-size: 2.5rem;
             overflow: hidden;
                         
             
             
 
         }
-        .menuBtnsClass
+        .menuClass
         {
-/*            align-items: flex-start;*/
-/*            display: block;*/
-/* border: solid black;*/
+            box-shadow: 0rem 0.6rem 0.4rem #767676;
+            background-color: #16588a;
+            border-radius: 4rem;
+            font-size: 1rem;
+            
+            
             
         }
         
-         .menuBtnsClass a:not(:last-child) 
+        .menuBtnsClass
         {
-/*            margin-right: 2rem;*/
+            text-align: center;
+/*            justify-content: space-between;*/
+            font-weight: bolder;
+/*            display: none;*/
+            animation-duration: 2s;
+        }
+        .menuBtnsClass a
+        {
+            cursor: pointer;
+/*            border-bottom: solid black;*/
+        }
+        .menuBtnsClass a:active
+        {
+            background-color: antiquewhite;
         }
         #logoImgId
         {
@@ -136,16 +154,12 @@
         }
         .bar1, .bar2, .bar3 
         {
-            width: 3rem;
-            height: 0.5rem;
-            background-color: #333;
-            margin: 0.5rem 0;
-            transition: 0.4s;
+            display: none;
         }
         .change .bar1 
         {
-            -webkit-transform: rotate(-45deg) translate(-0.5rem, 0.4rem);
-            transform: rotate(-45deg) translate(-0.5rem, 0.4rem);
+/*            -webkit-transform: rotate(-45deg) translate(-0.5rem, 0.4rem);*/
+            transform: rotate(-45deg) translate(-0.6rem, 0.4rem);
         }
 
         .change .bar2 
@@ -155,51 +169,71 @@
 
         .change .bar3 
         {
-            -webkit-transform: rotate(45deg) translate(-0.9rem, -0.9rem);
-            transform: rotate(45deg) translate(-0.9rem, -0.9rem);
+/*            -webkit-transform: rotate(45deg) translate(-0.9rem, -0.9rem);*/
+            transform: rotate(45deg) translate(-1rem, -1rem);
+        }
+        .content
+        {
+        }
+        @media screen and (max-width: 800px)/*TEST*/
+        {
+            .menuBarTitleClass
+            {
+                font-size: 2rem;
+            }
+            .menuBtnsClass
+            {
+                display: block;
+            }
+            
         }
         
-        
-        @media screen and (max-width: 450px)
+        @media screen and (max-width: 600px)/*TEST*/
         {
-            
+            .menuBarTitleClass
+            {
+                font-size: 1.5rem;
+            }
+            .menuBtnsClass
+            {
+                display: none;
+            }
+            .bar1, .bar2, .bar3 
+            {
+                display: block;
+                width: 3rem;
+                height: 0.6rem;
+                background-color: rgb(0, 0, 0);
+                margin: 0.5rem 0;
+                transition: 0.5s;
+            }
         }
         
         
     </style>
     <body>
-        <div class="menuBarClass">
-            <script>
-                    document.write(createImage("logoImgId",  "logoImgClass", main_logo, ''));
-            </script>
-            <div class="menuBarTitleClass">
-                
-                <spam>Bella's HD Photography</spam>
-                
-            </div>  
-                <div class="menuBtnsClass" onclick="myFunction(this)" style="margin-right: 1rem">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div> 
-        </div>
-<!--
-        <div class="menuBarClass">
-            <div class="menuBarTitleClass">
+        <div class="menuClass">
+            <div class="menuBarClass">
                 <script>
-                    document.write(createImage("logoImgId",  "logoImgClass", main_logo, ''));
+                        document.write(createImage("logoImgId",  "logoImgClass", main_logo, ''));
                 </script>
-                <h1 style="text-overflow-y:hidden;">Bella's HD Photography</h1>
+                <div class="menuBarTitleClass">    
+                    <spam>Bella's HD Photography</spam>
+                </div>
+                    <div class="menuIconClass" onclick="myFunction(this)" style="margin-right: 1rem">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div> 
+
             </div>
-            <div class="menuBtnsClass">
-                <a onclick="onTabClick(event, 'homeBtnId')">Home</a>
-                <a onclick="onTabClick(event, 'aboutBtnId')">About</a>
-                <a onclick="onTabClick(event, 'contactBtnId')">Contact</a>
-                <a onclick="onTabClick(event, 'testingBtnBtnId')">Testing a very larger tabBtn </a>
-            </div>   
-        </div>
--->
-        
+            <div id="menuBtnsId" class="menuBtnsClass">
+                <a onclick="onMenuBtnClick(event, 'homeDivId')">Home</a>
+                <a onclick="onMenuBtnTabClick(event, 'aboutDivId')">About</a>
+                <a onclick="onMenuBtnTabClick(event, 'contactDivId')">Contact</a>
+                <a onclick="onMenuBtnTabClick(event, 'testingDivId')">Testing a larger Btn </a>
+            </div>
+        </div>        
 
         <script>
 
@@ -213,12 +247,41 @@
             function myFunction(x) 
             {
                 x.classList.toggle("change");
+                var btns = document.getElementById('menuBtnsId');
+                var display = (btns.style.display == "") ? "none" : btns.style.display;
+                btns.style.display = (display == "none") ? "block": "none";
+//                document.getElementById("demo").innerHTML = "A:" + btns.style.display;
+            }
+            
+            function onMenuBtnTabClick(event, id)
+            {
+                var clss = document.getElementsByClassName("content");
+                 var str = "";//= "[" + clss[0].className +"][" + id +"]";///////////////////////////////////////////////
+                for (i = 0; i < clss.length; i++)
+                {
+                    //str += "[" + clss[i].className +"][" + clss[i].id+"]";///////////////////////////////////////////////////////////
+                    document.getElementById(clss[i].id).style.display = "none";
+                }
+                document.getElementById("demo").innerHTML = str;//////////////////////////////////////////////////////////////////////////
+                document.getElementById(id).style.display = "block";//Need to be implemented
             }
         </script>
         
         <p id="demo"></p>
         
         
+        <div id="homeDivId" class="content" style="text-align: center;">
+            <h1>Home</h1>
+        </div>
+        <div id="aboutDivId" class="content" style="text-align: center; display: none">
+            <h1>About</h1>
+        </div>
+        <div id="contactDivId" class="content" style="text-align: center;display: none">
+            <h1>Contact</h1>
+        </div>
+        <div id="testingDivId" class="content" style="text-align: center;display: none">
+            <h1>This is a test</h1>
+        </div>
         
         
     </body>

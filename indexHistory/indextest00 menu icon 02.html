@@ -78,73 +78,85 @@
         {
             font-family: cursive;
         }
-        .menuOutClass
-        {
-            box-shadow: 0rem 0.6rem 0.4rem #767676;
-            background-color: #16588a;
-            border-radius: 4rem 0 4rem;
-        }
-        
-        
-        .menuInClass
+        .menuClass
         {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            /*font-size: 2.5rem;/*Title font size ONLY*/
             
+            box-shadow: 0rem 0.6rem 0.4rem #767676;
+            background-color: #16588a;
+            border-radius: 4rem;
         }
         
-        .menuTitleClass, .menuBtnsClass
+        .menuTitleClass, .menuBtnClass
         {
             text-align: center;
-            font-weight: bolder;
+            font-weight: bolder; 
 /*            overflow: hidden;*/
         }
         .menuTitleClass
-        {
-            font-size: 2.9rem;
-            background-color: antiquewhite;
-             border: solid black;
+        {/*font-size: 2.9rem;*/
+/*            border-radius: 4rem;*/
+/*            background-color: antiquewhite;*/
+/*            border: solid black;*/
+            overflow: hidden;
         }
-        .menuBtnsClass
-        {
-            font-size: 2rem;
+        .menuBtnClass
+        {/*font-size: 2rem;*/
             
         }
-        .menuBtnsClass a
+        .menuBtnClass a
         {
             margin-left: 1rem;
-            background-color: antiquewhite;
-            border-radius: 1rem; 
-             border: solid black;
-            
+/*            background-color: antiquewhite;*/
+/*            border-radius: 1rem;*/
 /*            border: solid black;*/
         }
-/*        .menuBtnsClass a:not(:first-child){margin-left: 1rem;}*/
-        
-        @media only screen and (max-width: 700px)/*TEST*/
-        {
-            .menuTitleClass{font-size: 2rem;}
-            .menuBtnsClass a{font-size: 1.4rem;}
-            
-            
-        }
-        @media screen and (max-width: 450px)/*TEST*/
-        {
-            .menuTitleClass{font-size: 1.5rem;}
-            .menuBtnsClass{font-size: 1rem;}
-        }
-        .menuBtnsClass a
+        .menuBtnClass a
         {
             cursor: pointer;
 /*            border-bottom: solid black;*/
         }
-        .menuBtnsClass a:active
+/*        .menuBtnClass a:not(:first-child){margin-left: 1rem;}*/
+        
+        @media only screen and (max-width: 700px)/*TEST*/
         {
-/*            background-color: antiquewhite;*/
+/*            .menuTitleClass{font-size: 2rem;}*/
+/*            .menuBtnClass a{font-size: 1.4rem;}*/
         }
-
+        @media screen and (max-width: 450px)/*TEST*/
+        {
+/*            .menuTitleClass{font-size: 1.5rem;}*/
+/*            .menuBtnClass{font-size: 1rem;}*/
+        }
+        @media screen and (max-width: 500px)/*TEST*/
+        {
+            .menuBtnClass{display: none;}
+            .menuBtnClass.responsive1
+            {
+                position: absolute;
+                right: 0;
+                display: grid;
+                border: solid black;
+                box-shadow: 0rem 0.9rem 0.4rem #767676;
+                background-color: rgba(22, 88, 138, 0.19);
+                border-radius: 1rem;
+/*
+                margin: 0 auto;
+                padding: 0;
+*/
+            }
+            .menuBtnClass a:hover
+            {
+                background-color: rgba(21, 20, 20, 0.24)
+            }
+            .menuBtnClass a
+            {
+                margin: 0;
+            }
+            
+        }
         .changeIconBar .menuIconBar1 
         {
             -webkit-transform: rotate(-45deg) translate(-0.5srem, 0.6rem);
@@ -161,48 +173,51 @@
             -webkit-transform: rotate(45deg) translate(-0.7rem, -0.7rem);
             transform: rotate(45deg) translate(-0.7rem, -0.7rem);
         }
-        .content
-        {
-        }
         .menuIconBar1, .menuIconBar2, .menuIconBar3 
         {
             display: block;
             width: 2.5rem;
             height: 0.5rem;
             background-color: rgb(0, 0, 0);
-            margin: 0.4rem 0;
+            margin:0.4rem;
             transition: 0.5s;
             border-radius: 0.3rem;
         }
+/*
         
-        
+        .menuBtnClass.responsive1
+        {
+            position: absolute;
+            display: grid;
+            border: solid black;
+            margin: 0 auto;
+            padding: 0;
+        }
+*/
+/*        .menuBtnClass{display: none;}*/
         
         
         
     </style>
     <body>
-        <div class="menuOutClass">
-            <div class="menuInClass">
-                <script>
-                        document.write(createImage("logoImgId",  "logoImgClass", main_logo, 'style="height: 4rem;"'));
-                </script>
-                <div class="menuTitleClass">    
-                    <spam>Bella's HD Photography</spam>
-<!--                    <h1>Bella's HD Photography</h1>-->
+        <div class="menuClass">
+            <script>
+                    document.write(createImage("logoImgId",  "logoImgClass", main_logo, 'style="height: 4rem;"'));
+            </script>
+            <div class="menuTitleClass">    
+                <spam style="font-size: 3rem" >Bella's HD Photography</spam><!-- TEST -->
+                <div id="menuBtnId" class="menuBtnClass" style="font-size: 2rem;" ><!-- TEST -->
+                    <a onclick="onMenuBtnClick(event, 'homeDivId')">Home</a>
+                    <a onclick="onMenuBtnClick(event, 'aboutDivId')">About</a>
+                    <a onclick="onMenuBtnClick(event, 'contactDivId')">Contact</a>
+                    <a onclick="onMenuBtnClick(event, 'portfolioDivId')">portfolio</a>
                 </div>
-                    <div class="menuIconClass" onclick="myFunction(this)" style="margin-right: 1rem;">
-                    <div class="menuIconBar1"></div>
-                    <div class="menuIconBar2"></div>
-                    <div class="menuIconBar3"></div>
-                </div> 
-
             </div>
-            <div id="menuBtnsId" class="menuBtnsClass">
-                <a onclick="onMenuBtnClick(event, 'homeDivId')">Home</a>
-                <a onclick="onMenuBtnClick(event, 'aboutDivId')">About</a>
-                <a onclick="onMenuBtnClick(event, 'contactDivId')">Contact</a>
-                <a onclick="onMenuBtnClick(event, 'portfolioDivId')">portfolio</a>
-            </div>
+                <div class="menuIconClass" onclick="myFunction(this)" style="margin-right: 1rem;">
+                <div class="menuIconBar1"></div>
+                <div class="menuIconBar2"></div>
+                <div class="menuIconBar3"></div>
+            </div> 
         </div>        
 
         <script>
@@ -213,7 +228,7 @@
                 document.getElementById("demo").innerHTML = "Width: " + w + ", " + "Height: " + h;
 //                if (w <= 700)
 //                {
-//                    var temp = document.getElementsByClassName("menuBtnsClass");
+//                    var temp = document.getElementsByClassName("menuBtnClass");
 //                    for (i = 0; i < temp.length; i++)
 //                    {
 //                        temp[i].style.fontSize = "1rem";
@@ -223,10 +238,20 @@
             function myFunction(x) 
             {
                 x.classList.toggle("changeIconBar");
-//                var btns = document.getElementById('menuBtnsId');
+//                var btns = document.getElementById('menuBtnId');
 //                var display = (btns.style.display == "") ? "none" : btns.style.display;
 //                btns.style.display = (display == "none") ? "block": "none";
 //                document.getElementById("demo").innerHTML = "A:" + btns.style.display;
+                
+                var btns = document.getElementById("menuBtnId");
+                if (btns.className === "menuBtnClass") 
+                {
+                    btns.className += " responsive1";
+                } 
+                else 
+                {
+                    btns.className = "menuBtnClass";
+                }
             }
             
             function onMenuBtnClick(event, id)

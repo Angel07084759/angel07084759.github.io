@@ -351,7 +351,7 @@ background-color: darkgrey;
             document.write('<div class="mySlides fade" style="color: brown;">');
             document.write('<div class="numbertext">'+ (i + 1) +"/"+ imagesTest.length+'</div>');
             document.write('<img src="' +imagesTest[i]+ '" style="width:100%;">');
-            var txt = imagesTest[0].split('/').pop().split('.')[0];
+            var txt = imagesTest[0].split('/').pop().split('.')[i];
             document.write('<div class="text">' +txt+ '</div></div>');
         }
         

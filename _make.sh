@@ -11,7 +11,8 @@ date="`date '+%b %d, %Y; %H:%M:%S; %Z'`"
 #fi
 git push
 #echo `git status --porcelain`
-git status --porcelain
-echo "Changes Date: $date"
+var=`git status --porcelain`
+echo "Changes Date:"
+echo $var
 read -p "Press [Enter] to continue..."
 

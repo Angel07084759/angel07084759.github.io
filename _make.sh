@@ -7,7 +7,7 @@ git push
 
 e=$(($e + $?))
 
-if (($e != 0 )); then
+if (($e == 0 )); then
 date="`date '+%b %d, %Y; %H:%M:%S; %Z'`"
 >data_changed.txt
 $date > data_changed.txt

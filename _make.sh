@@ -1,5 +1,11 @@
+if [ -n "$(git status --porcelain)" ]; then
+  echo "there are changes";
+else
+  echo "no changes";
+fi
+
+
 git add .
-e=$?
 
 read -p "Enter message: " userInput
 git commit -m "`date '+%Y-%m-%d %H:%M:%S'` => $userInput"

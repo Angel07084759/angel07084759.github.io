@@ -10,6 +10,7 @@ then
 	git commit -m "`date '+%Y-%m-%d %H:%M:%S'` => $userInput"
 	git push
 	
+	echo ""
 	echo "Changes Date: $date"
 else
 	echo "There are NO changes!";

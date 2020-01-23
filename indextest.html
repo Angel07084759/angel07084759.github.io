@@ -176,6 +176,7 @@
 /* Caption text */
 .text {
   color: #f2f2f2;
+    background-color: rgba(0, 0, 0, 0.5);
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;
@@ -351,8 +352,8 @@ background-color: darkgrey;
             document.write('<div class="mySlides fade" style="color: brown;">');
             document.write('<div class="numbertext">'+ (i + 1) +"/"+ imagesTest.length+'</div>');
             document.write('<img src="' +imagesTest[i]+ '" style="width:100%;">');
-            var txt = imagesTest[0].split('/').pop().split('.')[i];
-            document.write('<div class="text">' +txt+ '</div></div>');
+            var txt = imagesTest[i].split('/').pop().split('.')[0];
+            document.write('<div class="text">' +txt+ '</div>    </div>');
         }
         
     </script>

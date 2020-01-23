@@ -130,6 +130,11 @@
 /*                display: none;*/
             }
         }
+        @media screen and (max-width: 80vw) /*and (min-height: 50%)*/
+        {
+/*            body{background-color: firebrick;}*/
+        }
+        
         
     </style><!--W=360, H=560-->
     <body>
@@ -185,6 +190,48 @@
                 document.getElementById("demo").innerHTML += "[" +btns.length+ "]";///////////////////////////////////////////////////////
                 document.getElementById(id).style.display = "block";//Need to be implemented
             }
+            
+            /*Media sliceshow test starts here*/
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) 
+            {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) 
+            {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) 
+            {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                if (n > slides.length) 
+                {
+                    slideIndex = 1
+                }    
+                if (n < 1) 
+                {
+                    slideIndex = slides.length
+                }
+                for (i = 0; i < slides.length; i++) 
+                {
+                    slides[i].style.display = "none";  
+                }
+                for (i = 0; i < dots.length; i++) 
+                {
+
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";  
+                dots[slideIndex-1].className += " active";
+            }
+            
+            
         </script>
         
         <p id="demo"></p>
@@ -196,14 +243,28 @@
         
         <div id="homeDivId" class="content" style="text-align: center;">
             <h1>Home</h1>
+            
+            <div class="mySlides fade" style="border: solid white; width: 90vw; margin: 0 auto;">
+                <div class="numbertext">Hello</div>
+                <script>
+                    var w = document.documentElement.clientWidth;
+                    var h = document.documentElement.clientHeight;
+                    document.write(w);
+                    var dim = (w < h) ? ("width:60vw; height:auto"  ) : ("height:60vh; width: auto"); 
+                    document.write(createImage("ID",  "CLASS", main_logo, 'style="' + dim + ';"'));
+                </script>
+            <div class="text">Caption Test</div>
+            </div>
+            
+            
         </div>
-        <div id="aboutDivId" class="content" style="text-align: center; display: none">
+        <div id="aboutDivId" class="content" style="text-align: center; display: none;">
             <h1>About</h1>
         </div>
-        <div id="contactDivId" class="content" style="text-align: center;display: none">
+        <div id="contactDivId" class="content" style="text-align: center;display: none;">
             <h1>Contact</h1>
         </div>
-        <div id="portfolioDivId" class="content" style="text-align: center;display: none">
+        <div id="portfolioDivId" class="content" style="text-align: center;display: none;">
             <h1>Portfolio</h1>
         </div>
         

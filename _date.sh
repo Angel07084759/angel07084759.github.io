@@ -1,17 +1,14 @@
-var=var
-git clone alsklkl
-e=$?
-git clone alsklkl
 
-#e=`echo "$? + $e" | bc`
+e=0
 e=$(($e + $?))
 
-#var="`date '+%b %d, %Y; %H:%M:%S; %Z'`"
+#if (($e == 0 )); then
+date="`date '+%b %d, %Y; %H:%M:%S; %Z'`"
 #>data_changed.txt
-#$var > data_changed.txt
+#$date > data_changed.txt
+echo "Changes Date: $date"
+#fi
 
-a=1
-if (($a > 2)); then echo YES; fi
 
 echo $var
 read -p "ERR:$e"

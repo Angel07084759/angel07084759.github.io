@@ -10,7 +10,8 @@ date="`date '+%b %d, %Y; %H:%M:%S; %Z'`"
 #echo $date>date
 #fi
 git push
-echo `git status --porcelain`
+#echo `git status --porcelain`
+git status --porcelain
 echo "Changes Date: $date"
 read -p "Press [Enter] to continue..."
 

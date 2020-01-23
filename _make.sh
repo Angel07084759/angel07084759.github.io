@@ -9,7 +9,7 @@ e=$(($e + $?))
 
 if (($e == 0 )); then
 date="`date '+%b %d, %Y; %H:%M:%S; %Z'`"
-echo $date>data_changed_date.txt
+echo $date>date
 echo "Changes Date: $date"
 fi
 

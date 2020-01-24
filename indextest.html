@@ -227,7 +227,9 @@
   from {opacity: .4} 
   to {opacity: 1}
 }        
-.mySlides {display: none;
+.mySlides 
+{
+display: none;
 border: solid white;
 background-color: darkgrey;
 }       
@@ -290,10 +292,11 @@ background-color: darkgrey;
             
             /*Media sliceshow test starts here*/
             var slideIndex = 1;
-            showSlides(slideIndex);
+//            showSlides(slideIndex);
 
             function plusSlides(n) 
             {
+                document.getElementById("demo2").innerHTML = "[sIdx"+slideIndex+",n" +n+ "]";
                 showSlides(slideIndex += n);
             }
 
@@ -309,11 +312,11 @@ background-color: darkgrey;
                 var dots = document.getElementsByClassName("dot");
                 if (n > slides.length) 
                 {
-                    slideIndex = 1
+                    slideIndex = 1;
                 }    
                 if (n < 1) 
                 {
-                    slideIndex = slides.length
+                    slideIndex = slides.length;
                 }
                 for (i = 0; i < slides.length; i++) 
                 {
@@ -322,35 +325,41 @@ background-color: darkgrey;
                 for (i = 0; i < dots.length; i++) 
                 {
 
-                    dots[i].className = dots[i].className.replace(" active", "");
+//                    dots[i].className = dots[i].className.replace(" active", "");
                 }
-                slides[slideIndex-1].style.display = "block";  
-                dots[slideIndex-1].className += " active";
+                
+//                document.write('<p id="demoX"></p>') ;
+//                document.getElementById("demoX").innerHTML = ">>" + (slideIndex - 1) + "" +slides.length ;
+                slides[slideIndex -1].style.display = "block";  
+//                dots[slideIndex-1].className += " active";
             }
         </script>
         
         
         <p id="demo"></p>
+        <p id="demo2"></p>
         <script>/*Test Only */
             var w = document.documentElement.clientWidth;
             var h = document.documentElement.clientHeight;
             document.getElementById("demo").innerHTML = "Width: " + w + ", " + "Height: " + h 
                 + "[Updated: " + updatedDate + "]";
         </script>
-<!--#######################################################################-->        
-<div id="homeDivId" class="content" style="text-align: center;">
+<!--######################################HOME#################################-->        
+<div id="homeDivId" class="content" style="text-align: center; display: none">
             <h1>Home</h1>
     <script>
         
         for (i = 0; i < imagesTest.length; i++)
         {
-            document.write('<div class="mySlides fade" style="color: brown; '+(i==0 ? "display: block;": "")+'">');
+            document.write('<div class="mySlides fade" style="color: brown; ">'); //'+(i==0?"display: block;":"")+'">');
+//            document.write('<div class="mySlides fade" style="color: brown; '+(i==0?"display: block;":"")+'">');
             document.write('<div class="numbertext">'+ (i + 1) +"/"+ imagesTest.length+'</div>');
             document.write('<img src="' +imagesTest[i]+ '" style="width:100%;">');
             var txt = imagesTest[i].split('/').pop().split('.')[0];
             document.write('<div class="text">' +txt+ '</div>    </div>');
         }
-        
+        showSlides(slideIndex);
+
     </script>
         
             
@@ -386,12 +395,12 @@ background-color: darkgrey;
         
         </div>
         
-        <!--#######################################################################-->
+        <!--###############################ABOUT###############################-->
         <div id="aboutDivId" class="content" style="text-align: center; display: none;">
             <h1>About</h1>
         </div>
         
-        <!--#######################################################################-->
+        <!--###############################CONTACT#############################-->
         <div id="contactDivId" class="content" style="text-align: center;display: none;">
             <h1>Contact</h1>
             
@@ -405,8 +414,8 @@ background-color: darkgrey;
             
         </div>
         
-        <!--#######################################################################-->    
-        <div id="portfolioDivId" class="content" style="text-align: center;display: none;">
+        <!--################################POSRTFOLIO#########################-->    
+        <div id="portfolioDivId" class="content" style="text-align: center; display: block">
             <h1>Portfolio</h1>
             
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -422,13 +431,13 @@ $(document).on("pagecreate","#pageone",function()
 </script>     
             
 <div data-role="page" id="pageone">
-    <div data-role="header">
+<!--    <div data-role="header">
         <h1>The swipe Event</h1>
-    </div>
+    </div>-->
 
     <div data-role="main" class="ui-content">
         <p>Swipe this text or in the box below.</p>
-        <p style="border:1px solid black;height:200px;width:200px;"></p>
+        <p style="border:1px solid white;height:200px;width:60%; margin: 0 auto"></p>
         <p><span style="color:red"></span></p>
     </div>
 

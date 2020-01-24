@@ -417,38 +417,96 @@ background-color: darkgrey;
         <!--################################POSRTFOLIO#########################-->    
         <div id="portfolioDivId" class="content" style="text-align: center; display: block">
             <h1>Portfolio</h1>
+<div id='swipeme' style="border: solid blue; height:50vw">
+    <p id="stid" >swipe me</p>
+    <script>
+    document.write(createImage("sId", "CLASS", main_logo, 'width="100%"'));
+    </script>
+</div>
             
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>-->
+<!--<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
 <script>
-$(document).on("pagecreate","#pageone",function()
+
+/*$(document).on("pagecreate","#pageone",function()
 {
-    $("p").on("swipe",function()
+    $( "p" ).on( "swipeleft", function( )
     {
-        $("span").text("Swipe detected!");
-    });                       
-});
+        $("span").text("Swipe LEFT!");
+        //plusSlides(-1);
+    } );
+    $( "p" ).on( "swiperight", function( )
+    {
+        $("span").text("Swipe RIGHT!");
+        //plusSlides(-1);
+    });      
+});*/
+
+     //https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android/23230280#23230280
+document.getElementById("sId").addEventListener('touchstart', handleTouchStart, false);        
+document.getElementById("sId").addEventListener('touchmove', handleTouchMove, false);
+
+var xDown = null;                                                        
+var yDown = null;
+
+function getTouches(evt) // browser API  // jQuery
+{   
+    return evt.touches || evt.originalEvent.touches;
+}                                                     
+
+function handleTouchStart(evt) 
+{
+    const firstTouch = getTouches(evt)[0];                                      
+    xDown = firstTouch.clientX;                                      
+    yDown = firstTouch.clientY;                                      
+};                                                
+
+function handleTouchMove(evt) 
+{
+    if ( ! xDown || ! yDown ) 
+    {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;                                    
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) )//most significant
+    {
+        if ( xDiff > 0 )//left swipe
+        {
+            console.log("LEFT");
+        }
+        else//right swipe 
+        {
+            console.log("RIGHT");
+        }                       
+    } 
+    else 
+    {
+        if ( yDiff > 0 )//up swipe
+        { 
+            console.log("UP");
+        }
+        else//down swipe
+        { 
+            console.log("DOWN");
+        }                                                                 
+    }
+    
+    /* reset values */
+    xDown = null;
+    yDown = null;                                             
+};
+    
 </script>     
             
-<div data-role="page" id="pageone">
-<!--    <div data-role="header">
-        <h1>The swipe Event</h1>
-    </div>-->
 
-    <div data-role="main" class="ui-content">
-        <p>Swipe this text or in the box below.</p>
-        <p style="border:1px solid white;height:200px;width:60%; margin: 0 auto"></p>
-        <p><span style="color:red"></span></p>
-    </div>
 
-    <div data-role="footer">
-        <h1>Footer Text</h1>
-    </div>
-</div> 
-
-        </div>
-        
-        
+</div><!---->
     </body>
 </html>
 

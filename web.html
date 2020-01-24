@@ -7,7 +7,77 @@
     </head>
     <body>
     
+                
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+    /*$(document).on("pagecreate","#pageone",function()
+{
+    $("p").on("swipe",function()
+    {
+        $("span").text("Swipe detected!");
+    });                       
+}); 
+    */
+//document.write('<p id="demoy"></p>') ;
+//$(function()
+//{
+//    $( ".news-slide-content-img" ).on( "swipeleft", swipeleftHandler );
+//    $( ".news-slide-content-img" ).on( "swiperight", swiperightHandler);
+//    function swipeleftHandler( )
+//    {
+//        
+//        document.getElementById("demoy").innerHTML = "Swipe Left" ; 
+//        //plusSlides(1);
+//    }
+//    function swiperightHandler( )
+//    {
+//        document.getElementById("demoy").innerHTML = "Swipe Right" ; 
+//        //plusSlides(-1);
+//    }
+//});
+$(document).on("pagecreate","#pageone",function()
+{
+    $( "p" ).on( "swipeleft", swipeleftHandler );
+    $( "p" ).on( "swiperight", swiperightHandler);
     
+    function swipeleftHandler( )
+    {
+        
+        $("span").text("Swipe LEFT!");
+        //plusSlides(1);
+    }
+    function swiperightHandler( )
+    {
+        $("span").text("Swipe RIGHT!");
+        //plusSlides(-1);
+    }
+    
+    $("p").on("swipe",function()
+    {
+//        $("span").text("Swipe detected!");
+        document.getElementById("idT").innerHTML = "Swipe detected!!!";
+    });       
+}); 
+    
+</script>     
+            
+<div data-role="page" id="pageone">
+<!--    <div data-role="header">
+        <h1>The swipe Event</h1>
+    </div>-->
+
+    <div data-role="main" class="ui-content">
+        <p id="idT">Swipe this text or in the box below.</p>
+        <p style="border:1px solid white;height:200px;width:60%; margin: 0 auto"></p>
+        <p><span style="color:red"></span></p>
+        
+    </div>
+
+    <div data-role="footer">
+        <h1>Footer Text</h1>
+    </div>
+</div>
     
     </body>
 </html>

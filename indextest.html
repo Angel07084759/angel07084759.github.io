@@ -337,19 +337,14 @@ background-color: darkgrey;
             document.getElementById("demo").innerHTML = "Width: " + w + ", " + "Height: " + h 
                 + "[Updated: " + updatedDate + "]";
         </script>
-        
+<!--#######################################################################-->        
 <div id="homeDivId" class="content" style="text-align: center;">
             <h1>Home</h1>
     <script>
-        document.write('<div class="mySlides fade" style="color: brown; display: block">');
-        document.write('<div class="numbertext">'+1 +"/"+ imagesTest.length+'</div>');
-        document.write('<img src="' +imagesTest[0]+ '" style="width:100%;">');
-        var txt = imagesTest[0].split('/').pop().split('.')[0];
-        document.write('<div class="text">' +txt+ '</div></div>');
         
-        for (i = 1; i < imagesTest.length; i++)
+        for (i = 0; i < imagesTest.length; i++)
         {
-            document.write('<div class="mySlides fade" style="color: brown;">');
+            document.write('<div class="mySlides fade" style="color: brown; '+(i==0 ? "display: block;": "")+'">');
             document.write('<div class="numbertext">'+ (i + 1) +"/"+ imagesTest.length+'</div>');
             document.write('<img src="' +imagesTest[i]+ '" style="width:100%;">');
             var txt = imagesTest[i].split('/').pop().split('.')[0];
@@ -383,30 +378,65 @@ background-color: darkgrey;
     </script>
 </div>
             
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd7Jt8nqfjjHrA01JLP069t8E7HsxPOTG-d17O48stra3XYWw/viewform?embedded=true" width="640" height="808" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>            
-            
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd7Jt8nqfjjHrA01JLP069t8E7HsxPOTG-d17O48stra3XYWw/viewform?embedded=true" 
+        width="80%" height="560" frameborder="0" marginheight="0" marginwidth="0" style="border:solid white;"
+                    >Loading…</iframe>
         
         
         
+        </div>
         
         <!--#######################################################################-->
-        </div>
         <div id="aboutDivId" class="content" style="text-align: center; display: none;">
             <h1>About</h1>
         </div>
+        
+        <!--#######################################################################-->
         <div id="contactDivId" class="content" style="text-align: center;display: none;">
             <h1>Contact</h1>
             
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd7Jt8nqfjjHrA01JLP069t8E7HsxPOTG-d17O48stra3XYWw/viewform?embedded=true" width="640" height="808" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            <iframe src="https://forms.gle/pQPDQyCwYKRE7YYN6" width="360" height="560" frameborder="0" marginheight="0" marginwidth="0"
+                   style="border:solid white;"
+                    >Loading…</iframe>
             
-            
-            
-            
+<!--            https://docs.google.com/forms/d/e/1FAIpQLSd7Jt8nqfjjHrA01JLP069t8E7HsxPOTG-d17O48stra3XYWw/viewform?usp=sf_link-->
+<!--            https://forms.gle/pQPDQyCwYKRE7YYN6-->
             
             
         </div>
+        
+        <!--#######################################################################-->    
         <div id="portfolioDivId" class="content" style="text-align: center;display: none;">
             <h1>Portfolio</h1>
+            
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+$(document).on("pagecreate","#pageone",function()
+{
+    $("p").on("swipe",function()
+    {
+        $("span").text("Swipe detected!");
+    });                       
+});
+</script>     
+            
+<div data-role="page" id="pageone">
+    <div data-role="header">
+        <h1>The swipe Event</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>Swipe this text or in the box below.</p>
+        <p style="border:1px solid black;height:200px;width:200px;"></p>
+        <p><span style="color:red"></span></p>
+    </div>
+
+    <div data-role="footer">
+        <h1>Footer Text</h1>
+    </div>
+</div> 
+
         </div>
         
         

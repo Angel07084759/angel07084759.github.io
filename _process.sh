@@ -42,14 +42,14 @@ processMediaFiles() #params: 1>rootDirectory[@] 2>fileExtensions[@]
 			do
                 if [[ "$ext" == "$(echo "$extension" | tr '[:upper:]' '[:lower:]')" ]]
 				then
-                    mv "$fullPath" "$newFullPath" #Not working for git
-					temp=$mainUrl/$pathOnly/$newFileName
+                    mv "$fullPath" "$newFullPath"
+                    temp=$mainUrl/$pathOnly/$newFileName
                     echo $temp
                     fileOutput=$(basename -- "$pathOnly")
                     fileOutput="$pathOnly/$fileOutput.txt"
                     echo "$temp >> $fileOutput"
-                    echo $temp >> $fileOutput
-                    break
+                    echo $temp >> $fileOutput                    
+					break
                 fi
 			done
         fi
@@ -58,7 +58,14 @@ processMediaFiles() #params: 1>rootDirectory[@] 2>fileExtensions[@]
 
 for dir in ${imagesDirectories[@]} #*/ #array=(*/)
 do
-	processMediaFiles $dir ${imageExtensions[@]}
+	if [[ -d $dir ]]
+	then
+		for file in $(*/)
+		do
+			echo $file
+		done
+	fi
+	#processMediaFiles $dir ${imageExtensions[@]}
 done
 
 #for dir in ${videosDirectories[@]} #*/ #array=(*/)

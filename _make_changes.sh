@@ -6,7 +6,7 @@ videoExtensions=(mp4 webm ogg)				#
 imagesDirectories=(images)                  #directoris and names should not contain spaces
 videosDirectories=(videos)                  #
 
-git config core.ignorecase false
+#git config core.ignorecase false
 
 processMediaFiles() #params: 1>rootDirectory[@] 2>fileExtensions[@]
 {

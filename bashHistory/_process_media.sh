@@ -56,33 +56,16 @@ processMediaFiles() #params: 1>rootDirectory[@] 2>fileExtensions[@]
     done
 }
 
-date="`date '+%b %d, %Y; %H:%M:%S; %Z'`"
+for dir in ${imagesDirectories[@]} #*/ #array=(*/)
+do
+	processMediaFiles $dir ${imageExtensions[@]}
+done
 
-if [ -n "$(git status --porcelain)" ]
-then
-	echo "There are changes!";
-	read -p "Enter a commit message: " userInput
-	
-	for dir in ${imagesDirectories[@]} #*/ #array=(*/)
-	do
-		processMediaFiles $dir ${imageExtensions[@]}
-	done
-
-	for dir in ${videosDirectories[@]} #*/ #array=(*/)
-	do
-		processMediaFiles $dir ${videoExtensions[@]}
-	done
-	
-	echo $date>"date.txt"
-	git add .
-	git commit -m "`date '+%Y-%m-%d %H:%M:%S'` => $userInput"
-	git push
-	
-	echo ""
-	echo "Changes Date: $date"
-else
-	echo "There are NO changes!";
-fi
-
+for dir in ${videosDirectories[@]} #*/ #array=(*/)
+do
+	processMediaFiles $dir ${videoExtensions[@]}
+done
 read -p "Press [Enter] to continue..."
+
+
 

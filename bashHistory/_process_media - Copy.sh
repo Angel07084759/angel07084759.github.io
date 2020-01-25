@@ -11,7 +11,8 @@ processMediaFiles() #params: 1>rootDirectory[@] 2>fileExtensions[@]
     echo "#################################" ################
     echo $1
     
-    if [[ -d $1 ]]; then 
+    if [[ -d $1 ]]
+	then 
         temp=$(basename -- "$1")
         >"$1/${temp%.*}.txt"; 
     fi
@@ -20,7 +21,8 @@ processMediaFiles() #params: 1>rootDirectory[@] 2>fileExtensions[@]
     shift
     extensions=($@)
     
-	for file in "$currentDir"/*; do #Iterates current directory
+	for file in "$currentDir"/* #Iterates current directory
+	do
         fullPath=$file
         pathOnly=$(dirname "${fullPath}")
         fileName=$(basename -- "$fullPath")
@@ -31,11 +33,15 @@ processMediaFiles() #params: 1>rootDirectory[@] 2>fileExtensions[@]
         newFileName=$newFileName.$extension
         newFullPath=$pathOnly/$newFileName
         
-        if [[ -d $file ]]; then
+        if [[ -d $file ]]
+		then
             processMediaFiles $file ${extensions[@]}
-        elif [[ -f $file ]]; then
-            for ext in ${extensions[@]}; do
-                if [[ "$ext" == "$(echo "$extension" | tr '[:upper:]' '[:lower:]')" ]]; then
+        elif [[ -f $file ]]
+		then
+            for ext in ${extensions[@]}
+			do
+                if [[ "$ext" == "$(echo "$extension" | tr '[:upper:]' '[:lower:]')" ]]
+				then
                     mv "$fullPath" "$newFullPath"
                     temp=$mainUrl/$pathOnly/$newFileName
                     echo $temp
@@ -45,7 +51,7 @@ processMediaFiles() #params: 1>rootDirectory[@] 2>fileExtensions[@]
                     echo $temp >> $fileOutput
                     break
                 fi
-		      done
+			done
         fi
     done
 }

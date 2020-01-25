@@ -16,7 +16,8 @@ processMediaFiles() #params: 1>rootDirectory[@] 2>fileExtensions[@]
     if [[ -d $1 ]]
 	then 
         temp=$(basename -- "$1")
-        >"$1/${temp%.*}.txt"; 
+		rm "$1/${temp%.*}.txt"
+        >"$1/${temp%.*}.txt" 
     fi
     
     currentDir=$1
@@ -67,11 +68,33 @@ then
 	
 	for dir in ${imagesDirectories[@]} #*/ #array=(*/)
 	do
+		if [[ -d $dir ]]
+		then
+			for file in *
+			do
+				if [[ "$(echo "$file" | tr '[:upper:]' '[:lower:]')"  == "$(echo "$dir" | tr '[:upper:]' '[:lower:]')" ]]
+				then
+				dir=$file
+				break
+				fi
+			done
+		fi
 		processMediaFiles $dir ${imageExtensions[@]}
 	done
 
 	for dir in ${videosDirectories[@]} #*/ #array=(*/)
 	do
+		if [[ -d $dir ]]
+		then
+			for file in *
+			do
+				if [[ "$(echo "$file" | tr '[:upper:]' '[:lower:]')"  == "$(echo "$dir" | tr '[:upper:]' '[:lower:]')" ]]
+				then
+				dir=$file
+				break
+				fi
+			done
+		fi
 		processMediaFiles $dir ${videoExtensions[@]}
 	done
 	

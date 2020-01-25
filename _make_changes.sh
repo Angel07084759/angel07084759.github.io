@@ -50,11 +50,7 @@ processMediaFiles() #params: 1>rootDirectory[@] 2>fileExtensions[@]
                     fileOutput=$(basename -- "$pathOnly")
                     fileOutput="$pathOnly/$fileOutput.txt"
                     echo "$temp >> $fileOutput"
-                    echo $temp >> $fileOutput
-					
-					git add "$newFullPath"
-					git remove "$fullPath"
-                    
+                    echo $temp >> $fileOutput                    
 					break
                 fi
 			done

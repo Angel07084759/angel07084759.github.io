@@ -43,13 +43,6 @@ processMediaFiles() #params: 1>rootDirectory[@] 2>fileExtensions[@]
                 if [[ "$ext" == "$(echo "$extension" | tr '[:upper:]' '[:lower:]')" ]]
 				then
                     mv "$fullPath" "$newFullPath" #Not working for git
-					#git mv -n "$fullPath" "$fullPathX" && git mv "$fullPathX" "$newFullPath"
-					#git mv -n "$fullPath" "temp" && git mv -n "temp" "$newFullPath"
-                    #git mv -n "$fullPath" "$newFullPath" #Not working for git
-                    
-					git add "$newFullPath"
-					git remove "$fullPath"
-					
 					temp=$mainUrl/$pathOnly/$newFileName
                     echo $temp
                     fileOutput=$(basename -- "$pathOnly")

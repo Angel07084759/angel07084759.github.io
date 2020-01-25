@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
         var mainUrl = 'https://angel07084759.github.io';
-//        var updatedDate = getMediaLinks(mainUrl + "/date.txt"); 
-//        var main_logo = getMediaLinks(mainUrl + '/images/logo/logo.txt');
-//        var homepage_video = getMediaLinksNoExtension(mainUrl + '/videos/homepage_video/homepage_video.txt');
-//        var imagesTest = getMediaLinks(mainUrl + '/images/images.txt');
-//        
+        var updatedDate = getMediaLinks(mainUrl + "/date.txt"); 
+        var main_logo = getMediaLinks(mainUrl + '/images/logo/logo.txt')[0];
+        var homepage_video = getMediaLinksNoExtension(mainUrl + '/videos/homepage_video/homepage_video.txt');
+        var imagesTest = getMediaLinks(mainUrl + '/images/images.txt');
+        
         function getMediaLinks(url)
         {
             var fileOk = true;
@@ -69,8 +69,8 @@
         }
         function createImage(id, clss, src, set)
         {
-//            var mediaName = arr[i].split('/').pop();
-            return '<img id="' + id + '" class="' + clss + '" src="' + src+ '" ' + set + '> ';
+            var imgName = src.split('/').pop();
+            return '<img id="' + id + '" class="' + clss + '" src="' + src+ '" ' + set + 'alt="' + imgName+ '" > ';
         }
         
         function onSwipe(id, callback)
@@ -148,7 +148,23 @@
             font-weight: bolder;
             margin-right: 4vw;
             text-align: center;
-        }      
+        }
+        @media screen and (max-width: 650px)
+        {
+            #menuBtnID a
+            {
+                font-size: 1.1rem;
+                margin-right: 2vw;
+            }
+             #logoImgId
+            {
+                height: 2.15rem;
+            }
+        }
+        .content
+        {
+            display: block;
+        }
     </style>
     <body>
         <div id="menuId">
@@ -161,19 +177,32 @@
                     <a onclick="onMenuBtnClick(this, 'contactDivId')">Contact</a>
                     <a onclick="onMenuBtnClick(this, 'portfolioDivId')">portfolio</a>
                 </div>
-        </div>
-        <script>
-            
-            function onMenuBtnClick(obj, elementId)
-            {
-//                var mediaName = arr[i].split('/').pop();
-//                console.log(mediaName); 
-            }
+            <script>
+                function onMenuBtnClick(obj, divId)
+                {
+                    var content = document.getElementsByClassName("content");
+                    for (i = 0; i < content.length; i++)
+                    {
+                        document.getElementById(content[i].id).style.display = "none";
+                    }
+                    
+                    var btns = document.getElementById("menuBtnID").children;
+                    for (i = 0; i < btns.length; i++)
+                    {
+                        btns.item(i).style.border ="none";
+                    }
+                    obj.style.border ="solid black";
+                    document.getElementById(divId).style = "block";
+//                    document.getElementById(divId).className = ".content";
+                }
         </script>
+            
+        </div>
+
         
         
         <!--######################################HOME#################################-->        
-        <div id="homeDivId" class="content" style="text-align: center; border:solid darkblue; display: block; ">
+        <div id="homeDivId" class="content">
             <h1>Home</h1>
         
         
@@ -182,24 +211,28 @@
         
         
         <!--###############################ABOUT###############################-->
-        <div id="aboutDivId" class="content" style="text-align: center; display: none;">
+        <div id="aboutDivId" class="content" style="display: none;">
             <h1>About</h1>
         </div>
         
         
         
         <!--###############################CONTACT#############################-->
-        <div id="contactDivId" class="content" style="text-align: center;display: none;">
+        <div id="contactDivId" class="content" style="display: none;">
             <h1>Contact</h1>
+<!--
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd7Jt8nqfjjHrA01JLP069t8E7HsxPOTG-d17O48stra3XYWw/viewform?embedded=true" 
             width="80%" height="560" frameborder="0" marginheight="0" marginwidth="0" style="border:solid white;">
             Loading…
             </iframe>
-            
+-->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd7Jt8nqfjjHrA01JLP069t8E7HsxPOTG-d17O48stra3XYWw/viewform?embedded=true" width="100%" height="50%" style="border:solid white;">
+            Loading…
+            </iframe>
         </div>
         
         <!--################################POSRTFOLIO#########################-->    
-        <div id="portfolioDivId" class="content" style="text-align: center; display: none">
+        <div id="portfolioDivId" class="content" style="display: none;">
             <h1>Portfolio</h1>
         </div><!---->
     </body>

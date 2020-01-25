@@ -6,7 +6,6 @@ videoExtensions=(mp4 webm ogg)				#
 imagesDirectories=(images)                  #directoris and names should not contain spaces
 videosDirectories=(videos)                  #
 
-git config core.ignorecase true
 
 processMediaFiles() #params: 1>rootDirectory[@] 2>fileExtensions[@]
 {
@@ -44,7 +43,8 @@ processMediaFiles() #params: 1>rootDirectory[@] 2>fileExtensions[@]
 			do
                 if [[ "$ext" == "$(echo "$extension" | tr '[:upper:]' '[:lower:]')" ]]
 				then
-                    mv "$fullPath" "$newFullPath"
+                    #mv "$fullPath" "$newFullPath" #Not working for git
+					git mv "$fullPath" "$fullPathX" && git mv "$fullPathX" "$newFullPath"
                     temp=$mainUrl/$pathOnly/$newFileName
                     echo $temp
                     fileOutput=$(basename -- "$pathOnly")

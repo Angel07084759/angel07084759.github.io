@@ -3,21 +3,13 @@
     <head>
         <title>Bella's HD Photography</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href='https://angel07084759.github.io/images/logo/BHDPLogo.png'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        
-
         <script>
+            var url = 'https://angel07084759.github.io';
+            var logoUrl = getMediaLinks(url + '/images/logo/logo.txt')[0];
+            var homeImgUrl = getMediaLinks(url + '/images/home_img/home_img.txt')[0];
+            document.write('<link rel="icon" href="'+logoUrl+'">');
             
-//            var mainUrl = 'https://angel07084759.github.io';
-//            var updatedDate = getMediaLinks(mainUrl + "/docs/date.txt")[0]; 
-//            var main_logo = getMediaLinks(mainUrl + '/images/logo/logo.txt')[0];
-//            var homepage_video = getMediaLinksNoExtension(mainUrl + '/videos/homepage_video/homepage_video.txt')[0];
-//            var imagesTest = getMediaLinks(mainUrl + '/images/images.txt');
-            var logo = 'https://angel07084759.github.io/images/logo/BHDPLogo.png';
-            var homepage_img = 'https://angel07084759.github.io/images/home_img/home_img.png';
-            
-
             function getMediaLinks(url)
             {
                 var fileOk = true;
@@ -122,95 +114,152 @@
                     callback(result);                                             
                 }, false);
             }
-    </script>
+        </script>
+        
         <style>
-            *
+            body
             {
                 font-family: cursive;
+                color: azure;
+                margin: 0;
+            }
+            .container
+            {
+                height: 100vh;
+                background-position: center;
+                background-repeat: no-repeat;
+                text-align: center;
             }
             .nav
             {
-                background: rgba(0,0,0,0.5);
-                color: azure;
-            }
-            .menuBtnClass{display: none;}
-            .menuBtnClass.responsive
-            {
+                background-color: rgba(0,0,0,0.9);
+                width: 100%;
                 position: absolute;
-                right: 0;
-                display: grid;
-                border: solid black;
-                box-shadow: 0rem 0.9rem 0.4rem #767676;
-                background-color: rgba(22, 88, 138, 0.19);
-                border-radius: 1rem;
-/*
-                margin: 0 auto;
-                padding: 0;
-*/
+                display: flex;
+                justify-content: space-around;
             }
-            .changeIconBar .menuIconBar1 
-        {
-            -webkit-transform: rotate(180deg) translate(0rem, 0rem);
-            transform: rotate(180deg) translate(0rem, 0rem);
-        }
-
-        .changeIconBar .menuIconBar2 
-        {
-            opacity: 0;
-        }
-
-        .changeIconBar .menuIconBar3 
-        {
-            -webkit-transform: rotate(180deg) translate(0rem, 0rem);
-            transform: rotate(180) translate(0rem, 0rem);
-        }
-        .menuIconBar1, .menuIconBar2, .menuIconBar3 
-        {
-            display: block;
-            width: 2.5rem;
-            height: 0.5rem;
-            background-color: rgb(0, 0, 0);
-            margin:0.4rem;
-            transition: 0.5s;
-        }
+            
+            .bar1, .bar2, .bar3
+            {
+                width: 35px;
+                height: 4px;
+                margin-top: 4px;
+                background-color: azure;
+                transition: 0.5s;
+            }
+            .toggleChange .bar2{opacity: 0;}
+            .toggleChange .bar1
+            {
+                -webkit-transform: rotate(-225deg) translate(6px, -6px);
+                transform: rotate(225deg) translate(-6px, -6px);
+            }
+            .toggleChange .bar3
+            {
+                -webkit-transform: rotate(225deg) translate(6px, 6px);
+                transform: rotate(315deg) translate(6px, -6px);
+            }
         </style>
     </head>
     <body>
         <div class="nav">
-            <div class="menuTitleClass">    
-                <spam style="font-size: 3rem" >Bella's HD Photography</spam><!-- TEST -->
-                <div id="menuBtnId" class="menuBtnClass" style="font-size: 2rem;" ><!-- TEST -->
-<!--
-                    <a onclick="onMenuBtnClick(event, 'homeDivId')">Home</a>
-                    <a onclick="onMenuBtnClick(event, 'aboutDivId')">About</a>
-                    <a onclick="onMenuBtnClick(event, 'contactDivId')">Contact</a>
-                    <a onclick="onMenuBtnClick(event, 'portfolioDivId')">portfolio</a>
--->
-                </div>
-            </div>
-                <div class="menuIconClass" onclick="myFunction(this)" style="margin-right: 1rem;">
-                <div class="menuIconBar1"></div>
-                <div class="menuIconBar2"></div>
-                <div class="menuIconBar3"></div>
+            
+            <h2>Bella's HD Photography</h2><div></div><div></div><div></div><div></div>
+            <div class="toggleIcon" id="toggleId" onclick="toggle(this)" style="margin: auto 0">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
             </div>
             <script>
-                function myFunction(x) 
+                function toggle(obj)
                 {
-                    x.classList.toggle("changeIconBar");
+                    obj.classList.toggle("toggleChange");
 
                     var btns = document.getElementById("menuBtnId");
 
                     if (btns.className === "menuBtnClass") 
                     {
-                        btns.className += " responsive";
+                        btns.className += " toggleChange";
                     } 
                     else 
                     {
                         btns.className = "menuBtnClass";
                     }
+                    
                 }
             </script>
         </div>
+        
+        <div class="container" id="homeId">
+            <script>
+                document.getElementById("homeId").style.backgroundImage = 'url("'+homeImgUrl+'")';
+            </script>
+            
+            
+            
+        </div>
+        
+        
+<!--        <div class="container" id="portfolioId">
+            <script>
+                document.getElementById("portfolioId").style.backgroundImage = 'url("'+logoUrl+'")';
+            </script>
+        </div>
+        
+        <div class="container" id="aboutId">
+            <script>
+                document.getElementById("aboutId").style.backgroundImage = 'url("'+homeImgUrl+'")';
+            </script>
+        </div>
+        
+        
+        <div class="container" id="contactId">
+            <script>
+                document.getElementById("contactId").style.backgroundImage = 'url("'+logoUrl+'")';
+            </script>
+        </div>-->
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!--
+        <script> 
+            document.body.style.backgroundImage = 'url("'+homeImgUrl+'")';
+        </script>
+        
+        <div class="nav">
+        </div>
+        
+        <script> 
+            document.write(createImage("ID", "CLASS", logoUrl, ""));
+        </script>
+-->
+        
+        
+        
         
     </body>
 </html>

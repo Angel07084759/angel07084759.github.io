@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- head definitions go here -->
+        <title>Angel Tapia</title>
+        <!--link rel="stylesheet" href="http://angel07084759.github.io/styles.css"-->
+    </head>
+	<body	
+	<!-- https://angel07084759.github.io/images/images.txt -->
+	<p> ***STARTING*** </p>
+	<p id="demo"></p>	
+	
+	<script type="text/javascript">
+	
+
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() 
+	{
+		if (this.readyState == 4 && this.status == 200) 
+		{
+			// Action to be performed when the document is read;
+			//document.getElementById("demo").innerHTML = this.responseText;
+			//var myArr = JSON.parse(this.responseText);
+			//document.getElementById("demo").innerHTML = "L=";// . myArr.length;
+			//document.write(myArr.length)
+			//document.write("LENGTH");
+			//myFunction(myArr);
+		} 
+	};
+	
+	xhttp.open("GET", "https://angel07084759.github.io/images/images.txt", false);
+	xhttp.send(null);
+	
+	var data=xhttp.responseText;
+	var jsonResponse = JSON.parse(data);
+	document.write(jsonResponse["Data"]);
+	
+	//document.getElementById("demo").innerHTML = xhttp.responseText;
+	
+	
+	function myFunction(arr) 
+	{
+	  var out = "";
+	  var i;
+	  
+	  for(i = 0; i < arr.length; i++) 
+	  {
+		out += '<a href="' + arr[i].url + '">' + arr[i].display + '</a><br>';
+	  }
+	  document.write(out);
+	}
+	
+	</script>
+	
+	
+	<p> ***ENDING*** </p>
+    
+	</body>
+</html>

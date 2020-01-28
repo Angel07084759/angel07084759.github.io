@@ -1,0 +1,797 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Hecate Documentation Template</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<p align="center"><img src="assets/images/logo.png" alt="Hecate" /></p>
+		
+		<h3 class="center alt">	&ldquo;Hecate&rdquo; Documentation by &ldquo;IG_design&rdquo;
+		  v1.0</h3>
+		
+<hr>
+		
+		<h1 class="center">&ldquo;Hecate&rdquo;</h1>
+		
+<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 2015<br>
+					By: Ivan Grozdic aka IG_design<br>
+					Email: <a href="ivang.design@yahoo.com">ivang.design@yahoo.com</a>					</strong>				</p>
+</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/IG_design">here</a>. Thanks so much!</p>
+    </div>
+	  </div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+		  <li><a href="#cssFiles">CSS Files</a></li>
+		  <li><a href="#imgFiles">Image Files</a></li>
+		  <li><a href="#contactform">Contact Form</a></li>
+		  <li><a href="#googlemap">Google Map</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+	    </ol>
+		
+	  <p>&nbsp;</p>
+<hr>
+
+		<h1 id="cssFiles"><strong>A) CSS Files and Structure</strong> - <a href="#toc">top</a></h1>
+	  <p>This theme uses css files contained in the <strong>css</strong> folder<br>
+	  </p>
+	  <p><strong>Css files:</strong></p>
+	  <p>base<br>
+        layout<br> 
+        font-awesome<br>  
+        skeleton</p>
+	  <p><strong>Css file layout:</strong></p>
+
+<pre class="brush:css">
+.post-block {
+	position:relative;
+	width:100%;
+	overflow:hidden;
+	margin-top:50px;
+}
+.post-block:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.post-block p{
+	text-align:left;
+	margin-bottom:20px;
+}
+
+.tags-block {
+	position:relative;
+	width:100%;
+	overflow:hidden;
+	margin-top:50px;
+	margin-bottom:50px;
+	padding:30px;
+}
+.tags-block a{
+	text-transform:uppercase;
+	letter-spacing:2px;
+	padding:3px 20px;
+	background:#000;
+	font-size:12px;
+	color:#fff;
+	display:inline-block;
+	margin-right:5px;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+
+.tags-block a.autor-link{
+	float:right;
+}
+
+.post-block input,
+.post-block textarea{
+	margin-bottom:20px;;
+}
+
+
+
+
+
+.post-sidebar{ 
+	position:relative;
+	width:100%;
+}
+
+.post-sidebar input{
+	width:100%;
+	padding-left:20px;
+	padding-right:20px;
+	font-family: 'Inconsolata';
+	font-weight:400;
+	letter-spacing:1px;
+	font-size: 12px;
+	line-height:22px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background:#f1f1f1;
+	border:none;
+	color: #737373;
+	-webkit-transition: background 0.3s, color 0.3s;
+	transition: background 0.3s, color 0.3s;
+}
+.post-sidebar input:active {	
+	color: #fff;
+	outline: none !important;
+}
+.post-sidebar input:hover {	
+	color: #737373;
+	outline: none !important;
+}
+.post-sidebar input:focus {
+	color: #fff;	 
+	outline: none !important;
+}
+
+.post-sidebar input:-ms-input-placeholder  {
+	font-size: 10px;
+	text-transform:uppercase;
+	-webkit-transition:  color 0.3s;
+	transition:  color 0.3s;
+}
+.post-sidebar input::-moz-placeholder  {
+	font-size: 10px;
+	text-transform:uppercase;
+	-webkit-transition:  color 0.3s;
+	transition:  color 0.3s;
+}
+.post-sidebar input:-moz-placeholder  {
+	font-size: 10px;
+	text-transform:uppercase;
+	-webkit-transition:  color 0.3s;
+	transition:  color 0.3s;
+}
+.post-sidebar input::-webkit-input-placeholder  {
+	font-size: 10px;
+	text-transform:uppercase;
+	-webkit-transition:  color 0.3s;
+	transition:  color 0.3s;
+}
+.post-sidebar input:active:-ms-input-placeholder  {
+	color: #fff;
+}
+.post-sidebar input:active::-moz-placeholder  {
+	color: #fff;
+}
+.post-sidebar input:active:-moz-placeholder  {
+	color: #fff;
+}
+.post-sidebar input:active::-webkit-input-placeholder  {
+	color: #fff;
+}
+.post-sidebar input:focus:-ms-input-placeholder  {
+	color: #fff;
+}
+.post-sidebar input:focus::-moz-placeholder  {
+	color: #fff;
+}
+.post-sidebar input:focus:-moz-placeholder  {
+	color: #fff;
+}
+.post-sidebar input:focus::-webkit-input-placeholder  {
+	color: #fff;
+}
+
+
+
+.post-sidebar h6{ 
+	text-align:left;
+	padding-bottom:30px;
+}
+.link-tag{ 
+	position:relative;
+	width:100%;
+	overflow:hidden;
+	text-align:left;
+}
+.link-tag a {
+	text-transform:uppercase;
+	letter-spacing:2px;
+	padding:3px 15px;
+	background:#000;
+	font-size:10px;
+	color:#fff;
+	display:inline-block;
+	margin-right:5px;
+	margin-bottom:5px;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+.link-tag a:hover {
+}
+.link-recents{ 
+	position:relative;
+	width:100%;
+	overflow:hidden;
+	text-align:left;
+}
+.link-recents a{
+	position:relative;
+	display:block;
+	cursor:pointer;
+	font-size: 11px;
+	line-height:21px;
+	text-align:left;
+	text-transform:uppercase;
+	padding-top:10px;
+	padding-bottom:10px;
+	border-top:1px solid rgba(0,0,0,.1);
+	letter-spacing:1px;
+	color:#323232;
+	font-weight:300;
+	-webkit-transition: padding-left 0.3s, color 0.3s;
+	transition: padding-left 0.3s, color 0.3s;
+}
+.link-recents a:last-child{
+	border-bottom:1px solid rgba(0,0,0,.1);
+}
+.link-recents a:hover {
+	padding-left:10px;
+}
+.lat-pro{ 
+	position:relative;
+	width:100%;
+}
+.lat-pro:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.lat-pro-img{
+	position:relative; 
+	width:50%;
+	float:left;
+	display:inline-block;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+.lat-pro-img img{ 
+	width:100%;
+	display:block;
+	height:auto;
+}
+.lat-pro-img:hover{ 
+	opacity:0.4;
+}
+.separator-sidebar{ 
+	position:relative;
+	width:100%;
+	padding-top:70px;
+}
+
+
+
+
+	
+/* #Work
+================================================== */
+
+body.body--hidden .header-big-text{
+	opacity: 0;
+}
+.header-big-text{
+	-webkit-transition: opacity 300ms ease-in-out;
+	transition: opacity 300ms ease-in-out;
+}
+body.body--hidden {
+    overflow-y: hidden;
+}
+
+
+
+body.body--hidden .cd-header{
+	opacity: 0;
+}
+.cd-header{
+	-webkit-transition: opacity 300ms ease-in-out;
+	transition: opacity 300ms ease-in-out;
+}
+
+
+.padding-top-bottom-title{
+	padding-top:130px;
+	padding-bottom:40px;
+}
+.title-page-text{
+	position:relative;
+	width:100%;
+}
+.title-page-text h2{
+	text-align:center;
+	letter-spacing:12px;
+	margin-bottom:20px;
+}
+.title-page-text p{
+	font-weight:700;
+	font-size: 18px;
+	line-height:25px;
+	letter-spacing:4px;
+	text-align:center;
+	text-transform:uppercase;
+}
+
+	
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}	
+.clearfix:before,
+.clearfix:after {
+	content: '';
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.hidden {
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+.content {
+	padding: 1em 0 4em;
+}
+.wrapper {
+	overflow: auto;
+	width: 95%;
+	max-width: 1320px;
+	margin: 0 auto;
+}
+
+
+.card {
+	position: relative;
+	float: left;
+	width: 29%;
+	height: 0;
+	margin: 0 2% 4% 2%;
+	padding-bottom: 20%;
+}
+
+.card__container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	width: 100%;
+	height: 100%;
+	-webkit-transform: translate3d(0, 0, 0);
+	/* prevents flicker */
+
+	-webkit-overflow-scrolling: touch;
+	z-index:10;
+}
+
+.card__container--closed {
+	position: absolute;
+	overflow: hidden;
+}
+
+.card__image {
+	position: relative;
+	left: 50%;
+	display: block;
+	height: 100%;
+	max-height: 500px;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.card__container--closed .card__image {
+	cursor: pointer;
+}
+
+.card__content {
+	position: relative;
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	background: #fff;
+	padding-top:30px;
+	padding-bottom:80px;
+}
+
+.card__container--closed .card__content {
+	margin-top: 0;
+	padding: 5px 16px;
+	pointer-events: none;
+	background: transparent;
+}
+
+.card__caption {
+	font-size: 2em;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 35px 30px 0px;
+}
+
+.card__container--closed .card__caption {
+	font-size: 1em;
+	max-width: none;
+	padding: 30px 10px;
+	-webkit-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+.card__title {
+	margin: 5px 0 0 0;
+	color: #414141;
+	font-family: 'GarnataRegular';
+	letter-spacing:10px;
+}
+
+.card__container--closed .card__title {
+	color: #fff;
+	font-family: 'Inconsolata';
+	font-weight:400;
+	font-size: 22px;
+	text-align:left;
+	letter-spacing:2px;
+	text-transform:none;
+}
+
+.card__subtitle {
+	text-align:center;
+	color: #747474;
+	margin-top:20px;
+	margin-bottom:50px;
+	font-size: 16px;
+	text-transform:uppercase;
+}
+
+.card__container--closed .card__subtitle {
+	color: #fff;
+	margin-top:0;
+	margin-bottom:0;
+	text-align:left;
+	text-transform:none;
+	font-size: 14px;
+}
+
+.card__copy {
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+
+
+
+
+.card__btn-close {
+	font-size: 48px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 36px;
+	cursor: pointer;
+	color:#000;
+}
+
+.card__container--closed .card__btn-close {
+	display: none;
+}
+
+
+
+@media only screen and (max-width: 980px) {
+	.card {
+		width: 46%;
+		padding-bottom: 32.2%;
+	}
+	.card__image {
+		max-height: 360px;
+	}
+	.card__content {
+		margin-bottom: 0;
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+}
+
+@media only screen and (max-width: 580px) {
+	.card {
+		width: 96%;
+		padding-bottom: 67.2%;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.card__caption {
+		padding: 35px 0px 0px;
+	}
+	.card__copy {
+		padding: 25px 0px 100px;
+	}
+}
+
+
+.img-wrap{
+	position:relative;
+	width:100%;
+}
+.img-wrap img{
+	width:100%;
+	height:auto;
+	display:block;
+}
+
+
+
+
+.pattern {
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.pattern--hidden {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.pattern--hidden .polygon {
+	transition-duration: 0ms;
+}
+
+.pattern svg {
+	width: 100%;
+	height: 100%;
+}
+
+.polygon {
+	transition: -webkit-transform 300ms ease-in-out, opacity 300ms ease-in-out;
+	transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transform-origin: center bottom;
+	transform-origin: center bottom;
+	fill: transparent;
+}
+
+.polygon--hidden {
+	opacity: 0;
+	-webkit-transform: scale(0);
+	transform: scale(0);
+}
+/* disable scale on firefox */
+
+.ff .polygon {
+	-webkit-transform: scale(1)!important;
+	transform: scale(1)!important;
+}
+
+.project-details{
+	position:relative;
+	margin:0 auto;
+}
+.project-details h5{
+	text-align:left;
+	letter-spacing:6px;
+	margin-bottom:30px;
+}
+.project-details p{
+	text-align:left;
+	margin-bottom:15px;
+	letter-spacing:3px;
+}
+.project-details p:last-child{
+	margin-bottom:30px;
+}
+.project-details p a{
+	color:#000;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear; 
+}
+
+#owl-image-slider,
+#owl-image-slider1,
+#owl-image-slider2{
+	position:relative;
+	margin:0 auto;
+}
+#owl-image-slider .item,
+#owl-image-slider1 .item,
+#owl-image-slider2 .item{
+	position:relative;
+	margin:0 auto;
+}
+#owl-image-slider .item img,
+#owl-image-slider1 .item img,
+#owl-image-slider2 .item img{
+	width:100%;
+	display:block;
+}
+
+/* Video Hover Image */	
+
+.video-wrapper, figure.vimeo, figure.youtube {
+	margin:0;
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 0;
+	height: 0;
+	overflow: hidden;
+}	
+.video-wrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}	
+figure.youtube a img, figure.vimeo a img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: auto;
+	height: 100%;
+	max-width:none;
+}	
+figure.vimeo a:after, figure.youtube a:after {
+	content:"";
+	width:60px;
+	height:60px;
+	background:#fff;
+	z-index:9;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-30px 0 0 -30px;
+	border-radius:50%;
+	-webkit-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.1);
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear; 
+}
+figure.vimeo:hover a:after, figure.youtube:hover a:after {
+	background:#f9f9f9;
+	-webkit-box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.2);
+	box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.2);
+}	
+figure.vimeo a:before, figure.youtube a:before {
+	content:"";
+	width: 0;
+	height: 0;
+	border-top: 9px solid transparent;
+	border-bottom: 9px solid transparent;
+	border-left: 10px solid #414141;
+	z-index:10;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-3px;
+	margin-top:-7px;
+	display:block;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear; 
+}
+figure.vimeo:hover a:before, figure.youtube:hover a:before {
+	border-left: 8px solid #000;
+}	
+figure.vimeo a:hover img, figure.youtube a:hover img {
+	-webkit-transition: all 0.6s;
+	transition: all 0.6s;
+	-webkit-transform: scale(1.07) rotate(1deg);
+	transform: scale(1.07) rotate(1deg);
+}	
+figure.vimeo a img, figure.youtube a img {
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear; 
+	a -webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+</pre>
+
+      <hr>
+		
+	  <h3 id="imgFiles">&nbsp;</h3>
+	  <h1><strong>B) Image Files - <a href="#toc">top</a></strong></h1>
+	  <p>All the graphic elements for the entire theme are contained at the &quot;<strong>images</strong>&quot; folder.</p>
+	  <p>&nbsp;</p>
+      <hr>
+		
+	  <h3 id="contactform">&nbsp;</h3>
+	  <h1><strong>C) Contact Form - <a href="#toc">top</a></strong></h1>
+	  <p>For addressing contact form too your mail edit &quot;<strong>mail-it.php</strong>&quot; file and change mail address on line 5.</p>
+	  <p>&nbsp;</p>
+      <hr>
+		
+	  <h3 id="googlemap">&nbsp;</h3>
+	  <h1><strong>D) Google Maps Configuration - <a href="#toc">top</a></strong></h1>
+	  <p>Go to this link: https://developers.google.com/maps/documentation/javascript/tutorial#api_key to activated your google map API KEY. Your key replace in script link for google map after .../maps/api/js?key=HERE_YOUR_API_KEY Coordinates for map you can change in &quot;<strong>custom-contect.js</strong>&quot; file.</p>
+	  <p>&nbsp;</p>
+      <hr>
+	  <h1 id="javascript"></h1>
+      <h1><strong>E) JavaScript</strong> - <a href="#toc">top</a></h1>
+	  <p>All the pages link the neccessary js files inside the &quot;head&quot; tag of the document. If you need to modify the behavior from a certain jquery element open the <strong>&quot;js</strong>&quot; folder where you can alter the parameters of some of the js elements.</p>
+
+	  <p>&nbsp;</p>
+    <hr>
+		
+		<h1 id="credits">&nbsp;</h1>
+		<h1>F) Sources and Credits - <a href="#toc">top</a></h1>
+	  <p>I've used the following images, icons or other files as listed.        
+	  <h3>JAVASCRIPT      </h3>
+	  <ul><li><a href="http://jquery.com/" target="_blank">jQuery</a></li>
+			<li><a href="http://modernizr.com/"> modernizr-latest</a></li>
+			<li><a href="http://gsgd.co.uk/sandbox/jquery/easing/">jquery.easing.1.3</a></li>
+	  </ul>
+	  <h3>FONTS    </h3>
+		<ul>
+			<li><a href="http://www.google.com/fonts/specimen/Lato" target="_blank">Lato</a></li>
+	  </ul>
+<hr>
+		
+		<p class="prepend-top append-0">Once again, thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/IG_design">here</a>. Thanks so much!</p>
+		
+	  <p class="append-bottom alt large">IG_design</p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<p align="center"><img src="assets/images/logo.png" alt="Hecate" /></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

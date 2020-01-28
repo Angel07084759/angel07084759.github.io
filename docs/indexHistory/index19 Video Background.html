@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Bella's HD Photography</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        var mainUrl = 'https://angel07084759.github.io';
+        var main_logo = getMediaLinks(mainUrl + '/images/Logo/Logo.txt');//Change dir to alll lower case
+        var homepage_video = getMediaLinksNoExtension(mainUrl + '/videos/homepage_video/homepage_video.txt')[0];
+        
+        function getMediaLinks(url)
+        {
+            var fileOk = true;
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function() 
+            {
+                fileOk = !(this.readyState == 4 && this.status != 200);
+            };
+            
+            request.open('GET', url, false);//asyn=false
+            request.send(null);
+            
+            if (!fileOk)
+            {
+                return null;
+            }
+            
+            var tempArray = request.responseText.split('\n');
+            var removedLine = tempArray.pop().trim();
+            if (removedLine.length > 0)
+            {
+                tempArray.push(removedLine);
+            }
+            return tempArray;
+        }
+
+        function getMediaLinksNoExtension(url)
+        {
+            var arr = getMediaLinks(url);
+            if (arr == null)
+            {
+                return null;
+            }
+            var tempArray = new Array();
+            var map  = new Map();
+
+            for(i = 0; i < arr.length; i++)
+            {
+                var mediaName = arr[i].split('/').pop().split('.')[0];
+                var temp = arr[i].substr(0, arr[i].lastIndexOf('.'));
+                if (!map.has(mediaName))
+                {
+                    map.set(mediaName, arr[i]);
+                    tempArray.push(temp);
+                }
+            }
+            return tempArray;
+        }
+        function createVideo(playMode, id, clss, src, set)
+        {
+            var vSetup = '<video ' + playMode + ' id="' + id + '"' + ' class="' + clss + '" ' + set + '>';
+            vSetup += ' <source src="' + src  + '.mp4" type="video/mp4">';
+            vSetup += ' <source src="' + src  + '.webm" type="video/webm">';
+            vSetup += ' <source src="' + src  + '.ogg" type="video/ogg">';
+            vSetup += ' Your browser does not support HTML5 video.</video>';
+            return vSetup;
+        }
+        function createImage(id, clss, src, set)
+        {
+            return '<img id="' + id + '" class="' + clss + '" src="' + src+ '" ' + set + '> ';
+        }
+    </script>
+    <style>
+        body
+        {
+/*            background: rgba(0,0,0,0.5);*/
+            font-family: cursive;
+            margin: 0;
+        }
+        #homepage_video_id
+        {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+            z-index: -1;
+        }
+        .dropdown 
+        {
+/*            position: ;*/
+            display: inline;
+            height: 3rem;
+            display: flex;
+/*            width: 100%;*/
+/*            background: rgba(0, 0, 0, 0.2);*/
+        }
+        
+        .logoBtnClss
+        {
+            background: none;
+            color: white;
+            padding: 0;
+            border-color: rgba(0,0,0,0.5);
+            cursor: pointer;
+            height: 100%;
+            outline:none;
+/*            width: inherit;*/
+            
+            
+        }
+        .dropdown-content 
+        {
+            display: flex;
+            align-items: center;
+/*            cursor: pointer;*/
+/*            width: 100%;*/
+             background-color: rgba(0,0,0,0.5);
+            
+        }
+
+        .dropdown-content a 
+        {
+            margin: 1rem;
+/*            background-color: rgba(0,0,0,0.5);*/
+            color: #cec5c5;
+            cursor: pointer;
+/*            font-size: 1.2rem;*/
+            
+        }
+
+        .dropdown a:hover 
+        {
+            background-color: rgba(0,0,0,0.2);
+        }
+
+        .logoBtnClss:hover, .logoBtnClss:focus 
+        {
+            /*background-color: #16588a; /*rgba(0,0,0,0.5);*/
+        }
+        
+        .show 
+        {
+            display: block;
+        }
+        
+        .tabContent
+        {
+/*            position: fixed;*/
+/*            margin: 0;*/
+            display: none;
+/*            margin-top: 3rem;*/
+        }
+        
+        
+        
+        /*Respnsive starts here*/
+        @media screen and (max-width: 600px) 
+        {/*tab .tabBtn:not(:first-of-type) */
+            
+            .dropdown
+            {
+                top:0;
+                right:0;
+                position: fixed;
+                display: inline-block;
+            }
+            .dropdown-content
+            {
+                display: none;
+                position: relative;
+                text-align: center;     
+            }
+            .dropdown-content a 
+            {
+/*                float: right;*/
+                
+                display: block;
+/*                background-color: rgba(0,0,0,0.5);*/
+            }
+            .logoBtnClss
+            {
+/*                right: 0;*/
+            }
+            .tabContent
+            {
+                margin-top: 2rem;
+/*                position: fixed;*/
+/*                margin-top: 3rem;*/
+            }
+            #mainLogoBtnID
+            {
+                width: 100%;
+                text-align: end;
+            }
+            
+        }
+        
+
+        
+    </style>
+    </head>
+    <body>
+        <script>//homepage_video
+            document.write(createVideo("autoplay muted loop", "homepage_video_id", "CLASS", homepage_video,''));
+        </script>
+        
+        <div class="dropdown">            
+            <script>
+                var mainLogoImg = createImage("mainLogoImgId", "logoBtnClss"/*class*/, main_logo, 'style="height:100%; width: auto;"' );
+                var mainLogoBtn = '<button class="logoBtnClss" onclick="myFunction()" id="mainLogoBtnID">' + mainLogoImg + '</button>'; 
+                document.write(mainLogoBtn);
+            </script>
+            <div id="myDropdown" class="dropdown-content">
+                <a onclick="onTabClick(event, 'homeTabId')"> Home</a>
+                <a onclick="onTabClick(event, 'aboutTabId')">About</a>
+                <a onclick="onTabClick(event, 'contactTabId')">Contact</a>
+                <a onclick="onTabClick(event, 'TestingTabBtnID')">Testing a very larger tabBtn </a>
+            </div>
+            
+        </div>
+        <script>
+            function myFunction() 
+            {
+                var tabContent = document.getElementById("myDropdown");
+                document.getElementById("demo").innerHTML = tabContent.style.display;/////////////////////////////
+                
+                if (window.innerWidth > 600 && tabContent.style.display != "none")
+                {
+                    tabContent.style.display ="none";
+                }
+                else if(window.innerWidth > 600 && tabContent.style.display == "none")
+                {
+                    tabContent.style.display ="flex";
+                }
+                else
+                {
+                    document.getElementById("demo").innerHTML = "Responsive mode" + window.innerWidth;////////////////////////////////
+                    if (tabContent.style.display != "block")
+                    {
+                        tabContent.style.display = "block";
+                    }
+                    else
+                    {
+                        tabContent.style.display= "none"
+                    }
+                    tabContent.classList.toggle("show");
+                }
+            }
+            
+            window.onclick = function(event) 
+            {
+                document.getElementById("demo").innerHTML = "EVENTO DE PRUEBA" + event.target.matches('.logoBtnClss');
+                if (!event.target.matches('.logoBtnClss'))
+                {
+                    document.getElementById("myDropdown").style.display= "none";
+     /*               var dropdowns = document.getElementsByClassName(".dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) 
+                    {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) 
+                        {
+                            openDropdown.classList.remove('show');
+                        }
+                    }*/
+                }
+            }
+            function onTabClick(event, id)
+            {
+                var clss = document.getElementsByClassName("tabContent");
+                 var str = "";//= "[" + clss[0].className +"][" + id +"]";///////////////////////////////////////////////
+                for (i = 0; i < clss.length; i++)
+                {
+                    //str += "[" + clss[i].className +"][" + clss[i].id+"]";///////////////////////////////////////////////////////////
+                    document.getElementById(clss[i].id).style.display = "none";
+                }
+                document.getElementById("demo").innerHTML = str;//////////////////////////////////////////////////////////////////////////
+                document.getElementById(id).style.display = "block";//Need to be implemented
+            }
+            
+        </script>
+        <!--PLACE HOLDER-->
+            <div class="tabContent" id="homeTabId">
+                <h1 style="margin-top: 0;">Home   document .get El e m e n tB yI d( "h om eT ab I d " )  .s t y le. di sp la y  =  "block"</h1>
+                <button> this is a  button </button>
+                <button> this is a  button </button>
+                <button> this is a  button </button>
+                
+                
+                
+            </div>
+            <div class="tabContent" id="aboutTabId">
+                <h1 style="margin-top: 0;">About</h1>
+            </div>
+            <div class="tabContent" id="contactTabId">
+                <h1 style="margin-top: 0;">Contact</h1>
+            </div>
+        <p id="demo"> </p>
+        
+        
+        <script>//homepage_video
+            document.getElementById("homeTabId").style.display = "block";
+        </script>
+                
+        <script>
+            document.write(createVideo("autoplay muted loop", "videioTestId", "CLASS", homepage_video,'width="100%"'));
+        </script>
+        <h1 style="margin-top: 0;">Home   document .get El e m e n tB yI d( "h om eT ab I d " )  .s t y le. di sp la y  =  "block"</h1>
+         <script>
+            document.write(createVideo("autoplay muted loop", "videioTestId", "CLASS", homepage_video,'width="100%"'));
+        </script>
+        <h1 style="margin-top: 0;">Home   document .get El e m e n tB yI d( "h om eT ab I d " )  .s t y le. di sp la y  =  "block"</h1>
+         <script>
+            document.write(createVideo("autoplay muted loop", "videioTestId", "CLASS", homepage_video,'width="100%"'));
+        </script>
+        <h1 style="margin-top: 0;">Home   document .get El e m e n tB yI d( "h om eT ab I d " )  .s t y le. di sp la y  =  "block"</h1>
+        
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

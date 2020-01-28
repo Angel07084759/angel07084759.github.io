@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Bella's HD Photography</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        var main_logo = getMediaLinks('https://angel07084759.github.io/images/Logo/Logo.txt');//Change dir to alll lower case
+        var homepage_video = getVideoLinksNoExtension('https://angel07084759.github.io/videos/homepage_video/homepage_video.txt');//[0];
+        
+        function getMediaLinks(url)
+        {
+            var request = new XMLHttpRequest();
+            request.open('GET', url, false);
+            request.send(null);
+            var tempArray = request.responseText.split('\n');
+            var removedLine = tempArray.pop().trim();
+            if (removedLine.length > 0)
+            {
+                tempArray.push(removedLine);
+            }
+            return tempArray;
+        }
+
+        function getVideoLinksNoExtension(url)
+        {
+            var arr = getMediaLinks(url);
+            var tempArray = new Array();
+            var map  = new Map();
+
+            for(i = 0; i < arr.length; i++)
+            {
+                var mediaName = arr[i].split('/').pop().split('.')[0];
+                var temp = arr[i].substr(0, arr[i].lastIndexOf('.'));
+                if (!map.has(mediaName))
+                {
+                    map.set(mediaName, arr[i]);
+                    tempArray.push(temp);
+                }
+            }
+            return tempArray;
+        }
+        function createVideo(vPlayMode, vId, vClass, vSrc)
+        {
+            var vSetup = '<video ' + vPlayMode +' id="'+vId+'"' + ' class="' + vClass +'">';
+            vSetup += ' <source src="'+ vSrc+'.mp4"  type="video/mp4">';
+            vSetup += ' <source src="'+ vSrc+'.webm" type="video/webm">';
+            vSetup += ' <source src="'+ vSrc+'.ogg"  type="video/ogg">';
+            vSetup += ' Your browser does not support HTML5 video.</video>';
+            return vSetup;
+        }
+        function createImage(iId, iClass, iSrc, iSet)
+        {
+            return '<img id="' + iId + '" class="' + iClass + '" src="' + iSrc + '" ' + iSet + '> ';
+        }
+    </script>
+
+    <style>
+        *
+        {
+/*            box-sizing: border-box;*/
+        }
+        body
+        {
+/*            background: rgba(0, 0, 0, 0.9);*/
+            margin: 0;
+            font-family: cursive;
+            overflow: auto;
+        }
+        #homepage_video_id
+        {
+            position: fixed;
+            min-width: 100%; 
+            min-height: 100%;
+        }
+/*
+        #main_logo_id
+        {
+            height: 100%;
+        }
+*/
+        
+        .navDiv
+        {
+            position: absolute;
+			background: rgba(0, 0, 0, 0.5);
+			color: #f1f1f1;
+			width: 100%;
+            height: 35px; 
+            text-align: center;
+            
+            
+        }
+/*        .navDiv .mainContainer*/
+        .mainContainer
+        {
+            position: absolute;
+			background: rgba(23, 100, 100, 0.5);
+			color: #f1f1f1;
+            
+            
+            
+        }
+        .navBtn
+        {
+            font-family: inherit;
+            font-size: 100%;
+            height: inherit;
+            border: none;
+            background:none;
+            outline:none;
+            animation-fill-mode: both;
+            padding: 0;
+/*            margin-right: 2%;*/
+            
+            vertical-align: middle;
+        
+            
+        }
+        /*TESTING*/
+/*        .navBtn2
+        {
+            width: 100%;
+            border: none;
+            background:none;
+            outline:none;
+            padding: 0;
+            
+        }*/
+        .navBtn:hover
+        {
+            cursor:pointer;
+        }
+        .navBtn:active
+        {
+/*            background: rgba(0, 0, 0, 0.5);*/
+        }
+        /* Style the active class, and buttons on mouse-over */
+        .active, .btn:hover 
+        {
+            background-color: #666;
+            color: white;
+        }
+        
+        
+        
+    </style>
+        
+    </head>
+    <body>
+        <script>
+            document.write( createVideo("autoplay muted loop", "homepage_video_id", ""/*class*/, homepage_video) );
+        </script>
+        <div class="navDiv">
+            <script>
+                function onTabClick(evt, btnID)
+                {
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("navBtn");
+//
+//                    for (i = 0; i < tabcontent.length; i++) 
+//                    {
+//                        tabcontent[i].style.display = "none";
+//                    }
+//
+//                    tablinks = document.getElementsByClassName("navBtn");
+//
+//                    for (i = 0; i < tablinks.length; i++) 
+//                    {
+//                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+//                    }
+//
+//                    //document.getElementById(cityName).style.display = "block";
+//                    evt.currentTarget.className += " active";
+                    document.getElementById(btnID).style.background = "rgba(0, 0, 0, 0.3)";// "HELLO WORLD!!!";//btnID.toString;
+                    document.getElementById("demo").innerHTML = "HELLO " + btnID + " [" + tabcontent.length + "]";
+                    
+                }
+                //document.getElementById("defaultTab").click();
+
+
+
+
+
+                var btn = '<button class="navBtn" onclick="onTabClick(event, \'btn\')" id="btn">'
+                +createImage("main_logo_id", ""/*class*/, main_logo,'height="100%"'/*properties*/)+'</button>';
+                //document.write(createImage("main_logo_id", "CLASS", main_logo));
+                document.write(btn);
+                document.write('<button class="navBtn" onclick="onTabClick(event, \'btn1\')" id="btn1">BTN</button>');
+                document.write(btn);
+                document.write('<button class="navBtn" onclick="onTabClick(event, \'btn2\')" id="btn2">BTN</button>');
+                document.write(btn);
+                document.write('<button class="navBtn" onclick="onTabClick(event, \'btn3\')" id="btn3">BTN</button>');
+                document.write(btn);
+
+
+                function myFunction() 
+                {
+    /*                var x = document.getElementById("myTopnav");
+                    if (x.className === "topnav") 
+                    {
+                        x.className += " responsive";
+                    }
+                    else 
+                    {
+                        x.className = "topnav";
+                    }*/
+                }
+            </script>
+        <div class="mainContainer" id="idTest">
+             <p id="demo">This is s p test!</p> 
+            <h1>Hello</h1>
+            <h1>Bella's HD Photography</h1>
+            <script>
+                var btn = '<button class="navBtn" onclick="onTabClick(event, \'btn4\')" id="btn4">'
+                        + createImage("main_logo_id", "CLASS", main_logo, 'width="100%"') + '</button>';
+                document.write(btn);
+                document.write(btn);
+                document.write(btn);
+                document.write(btn);
+                document.write(btn);
+                document.write(btn);
+            </script>
+        </div>
+
+
+    </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

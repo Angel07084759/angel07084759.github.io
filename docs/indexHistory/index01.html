@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- head definitions go here -->
+        <title>Angel Tapia</title>
+        <!--link rel="stylesheet" href="http://angel07084759.github.io/styles.css"-->
+    </head>
+    <body bgcolor="#ffffff">
+        <!-- the content goes here -->
+        <div>
+            <h1><font color="#000000">Hello World!!!</font></h1>
+        </div>
+        
+	<p id="demo"></p>
+	
+	<script type="text/javascript">
+	
+	document.write("HELLOOOOO");
+	var fs = require('fs');
+	//document.write(fs);
+	document.write("FS END");
+	
+	//loadXMLDoc('http://angel07084759.github.io/images/images.txt');
+    function loadXMLDoc(theURL)
+    {
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari, SeaMonkey
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                alert(xmlhttp.responseText);
+            }
+        }
+        xmlhttp.open("GET", theURL, false);
+        xmlhttp.send();
+    }
+	</script>
+		
+    </body>
+</html>

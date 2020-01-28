@@ -132,7 +132,7 @@
             }
             .nav
             {
-                background-color: rgba(0,0,0,0.9);
+                background-color: rgba(0,0,0,0.8);
                 width: 100%;
                 position: absolute;
                 display: flex;
@@ -150,45 +150,56 @@
             .toggleChange .bar2{opacity: 0;}
             .toggleChange .bar1
             {
-                -webkit-transform: rotate(-225deg) translate(6px, -6px);
+                -webkit-transform:rotate(225deg) translate(-6px, -6px);
                 transform: rotate(225deg) translate(-6px, -6px);
             }
             .toggleChange .bar3
             {
-                -webkit-transform: rotate(225deg) translate(6px, 6px);
+                -webkit-transform:  rotate(315deg) translate(6px, -6px);
                 transform: rotate(315deg) translate(6px, -6px);
+            }
+            .menu
+            {
+                background-color: rgba(0,0,0,0.5);
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                transform: translate(0%, 50%);
+                display: none;
+                
+                
             }
         </style>
     </head>
     <body>
         <div class="nav">
-            
-            <h2>Bella's HD Photography</h2><div></div><div></div><div></div><div></div>
-            <div class="toggleIcon" id="toggleId" onclick="toggle(this)" style="margin: auto 0">
+            <h2 style="margin: 1vh;">Bella's HD Photography</h2><div></div><div></div><div></div><div></div>
+            <div class="toggleIcon" id="toggleId" onclick="toggle(this)" style="margin: 1vh">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
+
             <script>
                 function toggle(obj)
                 {
                     obj.classList.toggle("toggleChange");
-
-                    var btns = document.getElementById("menuBtnId");
-
-                    if (btns.className === "menuBtnClass") 
-                    {
-                        btns.className += " toggleChange";
-                    } 
-                    else 
-                    {
-                        btns.className = "menuBtnClass";
-                    }
-                    
+                    var btns = document.getElementById("menuBtnId");                    
                 }
             </script>
+
+
+
+        </div>
+        <div class="menu">
+            <a onclick="onMenuBtnClick(event, 'homeId')">Home</a>
+            <a onclick="onMenuBtnClick(event, 'aboutId')">About</a>
+            <a onclick="onMenuBtnClick(event, 'contactId')">Contact</a>
+            <a onclick="onMenuBtnClick(event, 'portfolioId')">portfolio</a>
         </div>
         
+        
+<!--        <div class="container" id="homeId" style="margin: 0 auto; text-align: center">-->
         <div class="container" id="homeId">
             <script>
                 document.getElementById("homeId").style.backgroundImage = 'url("'+homeImgUrl+'")';

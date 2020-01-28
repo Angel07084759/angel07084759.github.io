@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
         var mainUrl = 'https://angel07084759.github.io';
-        var updatedDate = getMediaLinks(mainUrl + "/date.txt"); 
+        var updatedDate = getMediaLinks(mainUrl + "/date.txt")[0]; 
         var main_logo = getMediaLinks(mainUrl + '/images/logo/logo.txt')[0];
-        var homepage_video = getMediaLinksNoExtension(mainUrl + '/videos/homepage_video/homepage_video.txt');
+        var homepage_video = getMediaLinksNoExtension(mainUrl + '/videos/homepage_video/homepage_video.txt')[0];
         var imagesTest = getMediaLinks(mainUrl + '/images/images.txt');
         
         function getMediaLinks(url)
@@ -163,7 +163,17 @@
         }
         .content
         {
-            display: block;
+/*            display: block;*/
+            
+        }
+        .sectionTitle
+        {
+            font-size: 2rem;
+            font-weight: bolder;
+            text-align: center;
+            margin-top: 0;
+            border: solid #9dacb9;
+            
         }
     </style>
     <body>
@@ -203,23 +213,65 @@
         
         <!--######################################HOME#################################-->        
         <div id="homeDivId" class="content">
-            <h1>Home</h1>
-        
+            <script>document.write("Last time updated: " + updatedDate);</script>
+            <p class="sectionTitle">Home</p>
+            
+            
+            
+            
+                <script>
+                    document.write(createVideo("autoplay muted loop", "homepage_video_id", "CLASS", homepage_video,
+                                               'style="position: fixed; right: 0; bottom: 0; min-width: 100%;  min-height: 100%; z-index: -1; "'));
+
+                </script>
+                <div style='background: rgba(0, 0, 0, 0.5); width: 100%; position: fixed; bottom: 0; left:0; display: flex'>
+                    
+                <script>document.write(createImage("ID", "CLASS", main_logo, 'style="width:20%;"'));</script>
+                    
+                    
+                
+                    <p>HELLO</p>
+                    
+                    <button id="introPlayStopBtnId" onclick="introPlayStopClick()" style="background: #000; color: #fff; font-size: 2rem; font-family: cursive;">
+                        Pause</button>
+                </div>
+            
+            
+            <script>
+                    document.write('');
+                    var video = document.getElementById("homepage_video_id");
+                    var btn = document.getElementById("introPlayStopBtnId");
+                    
+                    
+                    function introPlayStopClick() 
+                    {
+                        if (video.paused) 
+                        {
+                            video.play();
+                            btn.innerHTML = "Pause";
+                        }
+                        else 
+                        {
+                        video.pause();
+                        btn.innerHTML = "Play";
+                        }
+                    }
+                </script>
         
         </div>
         
         
         
         <!--###############################ABOUT###############################-->
-        <div id="aboutDivId" class="content" style="display: none;">
-            <h1>About</h1>
+        <div id="aboutDivId" class="content" style="display: none; ">
+            <p class="sectionTitle">About</p> 
         </div>
         
         
         
         <!--###############################CONTACT#############################-->
         <div id="contactDivId" class="content" style="display: none;">
-            <h1>Contact</h1>
+            <p class="sectionTitle">Contact</p> 
 <!--
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd7Jt8nqfjjHrA01JLP069t8E7HsxPOTG-d17O48stra3XYWw/viewform?embedded=true" 
             width="80%" height="560" frameborder="0" marginheight="0" marginwidth="0" style="border:solid white;">
@@ -233,7 +285,7 @@
         
         <!--################################POSRTFOLIO#########################-->    
         <div id="portfolioDivId" class="content" style="display: none;">
-            <h1>Portfolio</h1>
+            <p class="sectionTitle">Portfolio</p> 
         </div><!---->
     </body>
 </html>

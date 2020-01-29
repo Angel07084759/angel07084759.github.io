@@ -132,7 +132,15 @@
                 text-align: center;
                 bottom: 0;
                 transition: height, 0.3s ease-in-out;
-                
+            }
+            .center
+            {
+                height: 100vh;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
             }
             .nav
             {
@@ -292,29 +300,20 @@
             <script>
                 document.getElementById("homeId").style.backgroundImage = 'url("' + homeImgUrl + '")';
             </script>
-
-            <div 
-                 style="height: 100vh;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;">
+            <div class="center">
                 <h1>Home</h1>
                 <ul>
                     <li>Item 1</li>
                     <li>Item 2</li>
                     <li>Item 3</li>
                 </ul>
-                
-                <div style="margin-bottom: 2vh;" >
-            
-                <a href="https://m.facebook.com/Bellas-HD-Photography-191620700849912/" 
-                   class="fa fa-facebook" title="FACEBOOK"></a>
-                <a href="https://www.instagram.com/bellashdphotography/" 
-                   class="fa fa-instagram"title="INSTAGRAM"></a>
-                <a href="https://vimeo.com/369468779" class="fa fa-vimeo"title="VIMEO"></a>
-            </div>
+
+                <div style="margin-bottom: 2vh;">
+
+                    <a href="https://m.facebook.com/Bellas-HD-Photography-191620700849912/" class="fa fa-facebook" title="FACEBOOK"></a>
+                    <a href="https://www.instagram.com/bellashdphotography/" class="fa fa-instagram" title="INSTAGRAM"></a>
+                    <a href="https://vimeo.com/369468779" class="fa fa-vimeo" title="VIMEO"></a>
+                </div>
             </div>
         </div>
         
@@ -333,7 +332,9 @@
             <script>
                 document.getElementById("portfolioId").style.backgroundImage = 'url("'+logoUrl+'")';
             </script>
-            <h1>Portfolio</h1>
+            <div class="center">
+                <h1>Portfolio</h1>
+            </div>
         </div>
         
         <!--################################ ABOUT ###########################################-->
@@ -341,7 +342,9 @@
             <script>
                 document.getElementById("aboutId").style.backgroundImage = 'url("'+homeImgUrl+'")';
             </script>
-            <h1>About Us</h1>
+            <div class="center">
+                <h1>About Us</h1>
+            </div>
         </div>
         
         
@@ -350,7 +353,9 @@
             <script>
                 document.getElementById("contactId").style.backgroundImage = 'url("'+logoUrl+'")';
             </script>
-            <h1>Contact Us</h1>
+            <div class="center">
+                <h1>Contact Us</h1>
+            </div>
         </div>
         
         
@@ -360,40 +365,7 @@
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <!--
-        <script> 
-            document.body.style.backgroundImage = 'url("'+homeImgUrl+'")';
-        </script>
-        
-        <div class="nav">
-        </div>
-        
-        <script> 
-            document.write(createImage("ID", "CLASS", logoUrl, ""));
-        </script>
--->
-        
-        
+     
         
         
     </body>

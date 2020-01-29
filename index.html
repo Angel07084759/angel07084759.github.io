@@ -126,11 +126,11 @@
             .container
             {
                 height: 0;
+                bottom: 0;
                 overflow: hidden;
                 background-position: center;
                 background-repeat: no-repeat;
                 text-align: center;
-                bottom: 0;
                 transition: height, 0.3s ease-in-out;
             }
             .center
@@ -178,7 +178,7 @@
             {
                 background-color: rgba(0,0,0,0.8);
                 position: absolute;
-                height: 0%;/**/
+                height: 0;/**/
                 width: 100%;
                 display: flex;
                 justify-content: center;
@@ -201,7 +201,7 @@
                 cursor: pointer;
                 margin: 0.5vh;
             }
-            .menuBtns a:hover/* , .active*/
+            .menuBtns a:hover, .fa:hover /* , .active*/
             {
                 color: rgb(181, 140, 48);
             }
@@ -214,10 +214,6 @@
                 text-align: center;
                 text-decoration: none;
                 border-radius: 50%;
-            }
-            .fa:hover
-            {
-                
             }
             .fa-facebook , .fa-instagram, .fa-vimeo
             {
@@ -296,7 +292,8 @@
         </script>
         
         <!--################################ HOME ############################################-->
-        <div class="container" id="homeId" style="height: 100%;">
+<!--        <div class="container" id="homeId">-->
+        <div class="container" id="homeId" style="height: 100vh;">
             <script>
                 document.getElementById("homeId").style.backgroundImage = 'url("' + homeImgUrl + '")';
             </script>
@@ -329,16 +326,51 @@
         
         <!--################################ PORTFOLIO #######################################-->
         <div class="container" id="portfolioId">
+<!--        <div class="container" id="portfolioId"  style="height: 100vh; overflow-y: scroll;">-->
             <script>
                 document.getElementById("portfolioId").style.backgroundImage = 'url("'+logoUrl+'")';
             </script>
             <div class="center">
                 <h1>Portfolio</h1>
+                <div style="width: 80vw; height: 45vw;">
+                <script>
+                    var imgsArr = new Array();// logoUrl);
+                    imgsArr.push(logoUrl);
+                    imgsArr.push(homeImgUrl);
+                    
+                    for (i = 0; i < imgsArr.length; i++)
+                    {
+                        document.write(
+                            createImage("", "", imgsArr[i], 
+                                        'style="width=100%; height: 100%; margin 0 auto; border: solid black" '));
+                    }
+                    for (i = 0; i < imgsArr.length; i++)
+                    {
+                        document.write(
+                            createImage("", "", imgsArr[i], 
+                                        'style="width=100%; height: 100%; margin 0 auto; border: solid black" '));
+                    }
+                    for (i = 0; i < imgsArr.length; i++)
+                    {
+                        document.write(
+                            createImage("", "", imgsArr[i], 
+                                        'style="width=100%; height: 100%; margin 0 auto; border: solid black" '));
+                    }
+                    for (i = 0; i < imgsArr.length; i++)
+                    {
+                        document.write(
+                            createImage("", "", imgsArr[i], 
+                                        'style="width=100%; height: 100%; margin 0 auto; border: solid black" '));
+                    }
+                
+                </script>
+                </div>
             </div>
         </div>
         
         <!--################################ ABOUT ###########################################-->
         <div class="container" id="aboutId">
+<!--            <div class="container" id="aboutId"  style="height: 100vh;">-->
             <script>
                 document.getElementById("aboutId").style.backgroundImage = 'url("'+homeImgUrl+'")';
             </script>
@@ -350,11 +382,13 @@
         
         <!--################################ CONATCT #########################################-->
         <div class="container" id="contactId">
+<!--            <div class="container" id="contactId"  style="height: 100vh;">-->
             <script>
                 document.getElementById("contactId").style.backgroundImage = 'url("'+logoUrl+'")';
             </script>
             <div class="center">
                 <h1>Contact Us</h1>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeYFODeYa4xgfkQOiDh9nAEjW_ZOEBwxII7BD_uVVmnQQbz2w/viewform?embedded=true" width="100%" height="800%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
         

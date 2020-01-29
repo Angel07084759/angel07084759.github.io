@@ -166,7 +166,7 @@
             {
                 background-color: rgba(0,0,0,0.8);
                 position: absolute;
-                height: 100vh;
+                height: 0;
                 width: 100%;
                 display: flex;
                 justify-content: center;
@@ -175,40 +175,32 @@
                 font-size: 1.5rem;
                 font-weight: bold;
                 user-select: none;
-                
-                transition: all 3s ease-in-out 5s, visibility 5s linear 3s, z-index 0s linear 0.01s;
-                /*-webkit-transition: width 5s;*/ /* Safari prior 6.1 */
-                /*transition: width 5s;*/
+                transition: height, 0.5s linear;
+                overflow: hidden;
+            
                 
                 
             }
-            .menuBtns
+            .menuBtns.active
             {
+                height: 100vh;
+                transition: height, 0.5s linear;
+            }
+            .menuBtns a
+            {
+                cursor: pointer;
             }
             .menuBtns a:hover
             {
                 color: rgb(181, 140, 48);
-                cursor: pointer;
-                
             }
-            .nav:hover
-            {
-                
-            }
-.nav:hover
-{
-    -webkit-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-    -webkit-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-}
+            
+            
         </style>
     </head>
     <body>
-        <div class="menuBtns" id="menuBtnsId" style="display: none;">
+        <div class="menuBtns" id="menuBtnsId">
+<!--        <div class="menuBtns" id="menuBtnsId">-->
 <!--
                 <a onclick="onMenuBtnClick(event, 'homeId')">Home</a>
                 <a onclick="onMenuBtnClick(event, 'aboutId')">About</a>
@@ -217,11 +209,10 @@
 -->
                 <a>Home</a>
                 <a>About</a>
+            
                 <a>Contact</a>
                 <a>portfolio</a>
         </div>
-        
-        
         
         <div class="nav">
             <spam style="font-size: 1.5rem; font-weight: bold; margin: 1vh;">Bella's HD Photography</spam>
@@ -239,7 +230,13 @@
                     obj.classList.toggle("toggleChange");
 //                    var btns = document.getElementById("menuBtnId"); 
                     var btn = document.getElementById("menuBtnsId");
-                        btn.style.display = btn.style.display == "none" ? "flex" : "none";
+//                    btn.style.visibility = "visible";
+//                    btn.style.opacity = "1";
+//                    btn.style.visibility = btn.style.visibility == "hidden" ? "visible" : "hidden";
+//                        btn.style.display = btn.style.display == "none" ? "flex" : "none";
+                    
+                        
+                    btn.className = btn.className == "menuBtns" ? (btn.className + " active") : "menuBtns";
                 }
             </script>
 
@@ -248,8 +245,22 @@
         
         <div class="container" id="homeId">
             <script>
-                document.getElementById("homeId").style.backgroundImage = 'url("'+homeImgUrl+'")';
+                document.getElementById("homeId").style.backgroundImage = 'url("' + homeImgUrl + '")';
             </script>
+
+            <div class="test" 
+                 style="height: 100vh;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;">
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                </ul>
+            </div>
         </div>
         
         

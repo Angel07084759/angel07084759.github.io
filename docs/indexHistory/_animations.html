@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <style>
+            /*	INVENTORE TABS SHORTCODE
+            ===============================================*/
+            .pulse{
+            animation-name: pulse;
+            -webkit-animation-name: pulse;	
+
+            animation-duration: 0.4s;	
+            -webkit-animation-duration: 0.4s;
+            }
+
+            @keyframes pulse {
+            0% {
+            transform: scale(0.8);
+            opacity: 0;		
+            }	
+            100% {
+            transform: scale(1);
+            opacity: 1;	
+            }			
+            }
+
+            @-webkit-keyframes pulse {
+            0% {
+            transform: scale(0.8);
+            opacity: 0;		
+            }	
+            100% {
+            transform: scale(1);
+            opacity: 1;	
+            }				
+            }
+
+            #tabs{
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            font-family: "Lato", Tahoma;
+            font-size: 13px;
+            line-height: 25px;
+            }
+
+            #tabs .tabs {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            }
+
+            #tabs .tabs li {
+            overflow: hidden;
+            font-family: "Raleway", Tahoma;
+            margin: 0;
+            float: left;
+            cursor: pointer;
+            display: block;
+            padding: 0 20px;
+            margin-right: 10px;
+            height: 42px;
+            color: #333;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 42px;
+            border: 2px solid #333;
+            position: relative;
+            letter-spacing: 1px;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+            }
+
+            #tabs .tabs .active {
+            background-color: #333;
+            color: #fff;
+            }
+
+            #tabs .tabcontent {
+            overflow: hidden;
+            margin: 10px 0 0;
+            padding: 5px 25px;
+            border: 2px solid #333;
+            }
+
+
+        </style>
+    </head>
+    
+    <body>
+    <div id="tabs">
+    <ul class="tabs">
+    <li data-tabs="tab1" class="active">Tab Title 1</li>
+    <li data-tabs="tab2">Tab Title 2</li>
+    <li data-tabs="tab3">Tab Title 3</li>
+    </ul>
+    <div id="tab1" class="tabcontent">
+    <h3>Great Tab Oh Yeah!</h3>
+    <p>Ut id nulla gravida, vulputate turpis non, ullamcorper diam. Nunc risus ante, rutrum sit amet diam a, aliquet porttitor libero. In hac habitasse platea dictumst. Quisque tempus non velit non mattis. Etiam bibendum interdum risus, ut cursus tellus ullamcorper sed. Nulla placerat magna vel libero congue, ac pulvinar lectus pharetra. Aenean eu magna sit amet quam sollicitudin convallis ut sed lectus. Praesent nec erat odio. Nunc ornare sapien nec viverra porttitor.</p>
+    </div>
+    <div id="tab2" class="tabcontent">
+    <p>Etiam bibendum interdum risus, ut cursus tellus ullamcorper sed. Nulla placerat magna vel libero congue, ac pulvinar lectus pharetra. Aenean eu magna sit amet quam sollicitudin convallis ut sed lectus. Praesent nec erat odio. Nunc ornare sapien nec viverra porttitor.</p>
+    </div>
+    <div id="tab3" class="tabcontent">
+    <p>Ut id nulla gravida, vulputate turpis non, ullamcorper diam. Nunc risus ante, rutrum sit amet diam a, aliquet porttitor libero.</p>
+    </div>
+    </div>
+        
+        <script>
+        
+        // TABS SHORTCODE
+
+$(function(e) {
+
+	$('.tabcontent').hide().filter(':first').show();
+
+	$('#tabs li[data-tabs]').on('click', function () {
+		
+		$('#tabs li[data-tabs]').removeClass('active');
+		$('.tabcontent').hide();
+
+		var tab = $(this).data('tabs');
+		$(this).addClass('active');
+		$('#' + tab).fadeIn().show();
+	});
+    
+    
+    
+    
+    $(".tabs li").click(function(){
+        var  cur =$(".tabs li").index(this);
+        var elm = $('.tabcontent:eq('+cur+')');
+        elm.addClass("pulse");
+        setTimeout(function() {
+              elm.removeClass("pulse");
+        }, 220);
+    });
+
+});
+        
+        
+        
+        </script>
+    </body>
+</html>

@@ -137,77 +137,127 @@
                 position: absolute;
                 display: flex;
                 justify-content: space-around;
+                margin: auto;
             }
             
             .bar1, .bar2, .bar3
             {
-                width: 35px;
+                width: 25px;
                 height: 4px;
                 margin-top: 4px;
                 background-color: azure;
                 transition: 0.5s;
             }
-            .toggleChange .bar2{opacity: 0;}
             .toggleChange .bar1
             {
                 -webkit-transform:rotate(225deg) translate(-6px, -6px);
                 transform: rotate(225deg) translate(-6px, -6px);
+            }
+            .toggleChange .bar2
+            {
+                opacity: 0;
             }
             .toggleChange .bar3
             {
                 -webkit-transform:  rotate(315deg) translate(6px, -6px);
                 transform: rotate(315deg) translate(6px, -6px);
             }
-            .menu
+            .menuBtns
             {
-                background-color: rgba(0,0,0,0.5);
+                background-color: rgba(0,0,0,0.8);
                 position: absolute;
-                height: 100%;
+                height: 100vh;
                 width: 100%;
-                transform: translate(0%, 50%);
-                display: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                font-size: 1.5rem;
+                font-weight: bold;
+                
+                -webkit-transition: width 5s; /* Safari prior 6.1 */
+                transition: width 5s;
                 
                 
             }
+            .menuBtns
+            {
+            }
+            .menuBtns a:hover
+            {
+                color: rgb(181, 140, 48);
+                cursor: pointer;
+                
+            }
+            .nav:hover
+            {
+                
+            }
+.myClass
+{
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
         </style>
     </head>
     <body>
+        <div class="menuBtns" id="menuBtnsId" style="display: none;">
+<!--
+                <a onclick="onMenuBtnClick(event, 'homeId')">Home</a>
+                <a onclick="onMenuBtnClick(event, 'aboutId')">About</a>
+                <a onclick="onMenuBtnClick(event, 'contactId')">Contact</a>
+                <a onclick="onMenuBtnClick(event, 'portfolioId')">portfolio</a>
+-->
+                <a>Home</a>
+                <a>About</a>
+                <a>Contact</a>
+                <a>portfolio</a>
+        </div>
+        
+        
+        
         <div class="nav">
-            <h2 style="margin: 1vh;">Bella's HD Photography</h2><div></div><div></div><div></div><div></div>
-            <div class="toggleIcon" id="toggleId" onclick="toggle(this)" style="margin: 1vh">
+            <spam style="font-size: 1.5rem; font-weight: bold; margin: 1vh;">Bella's HD Photography</spam>
+            <div></div><div></div><div></div><div></div>
+            
+            <div id="toggleId" onclick="toggle(this)" style="margin: auto 1vh auto 0">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
-
+            
             <script>
                 function toggle(obj)
                 {
                     obj.classList.toggle("toggleChange");
-                    var btns = document.getElementById("menuBtnId");                    
+//                    var btns = document.getElementById("menuBtnId"); 
+                    var btn = document.getElementById("menuBtnsId");
+                        btn.style.display = btn.style.display == "none" ? "flex" : "none";
                 }
             </script>
 
-
-
-        </div>
-        <div class="menu">
-            <a onclick="onMenuBtnClick(event, 'homeId')">Home</a>
-            <a onclick="onMenuBtnClick(event, 'aboutId')">About</a>
-            <a onclick="onMenuBtnClick(event, 'contactId')">Contact</a>
-            <a onclick="onMenuBtnClick(event, 'portfolioId')">portfolio</a>
         </div>
         
         
-<!--        <div class="container" id="homeId" style="margin: 0 auto; text-align: center">-->
         <div class="container" id="homeId">
             <script>
                 document.getElementById("homeId").style.backgroundImage = 'url("'+homeImgUrl+'")';
             </script>
-            
-            
-            
         </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
 <!--        <div class="container" id="portfolioId">

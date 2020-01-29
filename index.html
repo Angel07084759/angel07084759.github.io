@@ -174,9 +174,11 @@
                 flex-direction: column;
                 font-size: 1.5rem;
                 font-weight: bold;
+                user-select: none;
                 
-                -webkit-transition: width 5s; /* Safari prior 6.1 */
-                transition: width 5s;
+                transition: all 3s ease-in-out 5s, visibility 5s linear 3s, z-index 0s linear 0.01s;
+                /*-webkit-transition: width 5s;*/ /* Safari prior 6.1 */
+                /*transition: width 5s;*/
                 
                 
             }
@@ -193,7 +195,7 @@
             {
                 
             }
-.myClass
+.nav:hover
 {
     -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
